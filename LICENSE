@@ -1,14 +1,78 @@
-Copyright (c) 2026 Tinh Vo (TinhVoLab). All rights reserved.
+XD-Short Studio — Proprietary Source-Available Licence (Evaluation Only)
 
-This repository is published solely so that the organisers and judges of the
-Google Cloud AI Builder Cup 2026 can review the prototype "XD-Short Studio".
+Copyright (c) 2026 Võ Linh Tĩnh (TinhVoLab) and team X-DMAIC Lab.
+All rights reserved.
 
-No licence is granted to copy, modify, distribute, sublicense, deploy, or use
-this software or any part of it, for commercial or non-commercial purposes,
-except for viewing and evaluating it as part of that competition.
+1. Purpose
 
-Any other use requires prior written permission from the copyright holder.
+This repository is made publicly visible only so that the organisers, partners
+and judges of the Google Cloud AI Builder Cup 2026 ("the Competition") can
+review the prototype "XD-Short Studio" ("the Software").
+
+2. Limited permission
+
+Viewing the Software's source code is permitted. In addition, the organisers,
+partners and judges of the Competition may download, build and run the
+Software solely to evaluate it for the Competition, for the duration of the
+Competition, including the Grand Finale.
+
+Nothing in this licence limits any right that the copyright holder has
+granted to the organisers under the official Terms and Conditions of the
+Competition.
+
+3. Restrictions
+
+Except as expressly permitted in section 2, you may not, in whole or in part:
+
+  a. copy, reproduce, modify, translate or create derivative works of the
+     Software;
+  b. distribute, publish, sublicense, sell, rent or otherwise make the Software
+     available to any third party;
+  c. deploy, host or operate the Software, or any service based on it, for
+     yourself or for others;
+  d. incorporate the Software, its architecture-specific code, prompts,
+     scene templates, layouts or other content into any other product or
+     service, whether commercial or not;
+  e. use the Software or any part of it to train, fine-tune, evaluate or
+     otherwise improve any machine-learning or artificial-intelligence model
+     or dataset;
+  f. remove or alter this licence or any copyright notice.
+
+Forking this repository on GitHub, where GitHub's Terms of Service allow it,
+grants no right beyond viewing under section 2.
+
+4. Names and marks
+
+"XD-Short", "XD-Short Studio", "X-DMAIC Lab" and their logos are the names of
+the copyright holder. No right is granted to use them.
+
+5. Third-party components
+
+The Software depends on third-party libraries, fonts and services that are
+licensed separately by their own authors (see package.json and the files in
+public/). This licence does not claim ownership of them, and their own
+licences apply to them.
+
+6. Termination
+
+Any permission under this licence ends automatically if you breach it. On
+termination you must stop using and delete every copy of the Software in your
+possession.
+
+7. No warranty and no liability
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE.
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+8. Governing law
+
+This licence is governed by the laws of the Socialist Republic of Vietnam.
+
+9. Other uses
+
+Any use not permitted above requires prior written permission from the
+copyright holder. To request it, contact TinhVoLab through
+https://github.com/TinhVoLab.

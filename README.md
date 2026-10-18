@@ -146,4 +146,6 @@ docs/RENDER_PIPELINE.md         render infrastructure (Cloud Tasks + Cloud Run)
 
 ## Licence
 
-All rights reserved. Published for evaluation in the Google Cloud AI Builder Cup 2026 only — see [LICENSE](LICENSE).
+Proprietary, source-available for evaluation only. Viewing is allowed; copying, modifying, deploying, redistributing or using this code to train AI models is not. See [LICENSE](LICENSE).
+
+Copyright © 2026 Võ Linh Tĩnh (TinhVoLab) and team X-DMAIC Lab. All rights reserved.
