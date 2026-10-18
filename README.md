@@ -29,9 +29,13 @@ Short video is now the main channel for Vietnamese creators, teachers and small 
 | ![Idea step](docs/readme/step1-idea.png) | ![Script step](docs/readme/step2-script.png) | ![Voice step](docs/readme/step3-voice.png) |
 | Type one sentence, pick 15/30/60 s and a style. The scene count comes from the planner; plan limits and credits are shown up front. | Gemini writes every scene and picks its template. The preview column plays the **real scene** with the same engine as the export. | Pick a Gemini or Edge voice; scene length is fitted to the audio, captions follow each word. Then edit on the canvas and export MP4. |
 
-Frames from a generated 45 s video ("Sleep better") — open question → steps → cause chain → guess → answer → pick a number:
+A real run in the live app — one sentence, *"Weekend: go out or stay home and study?"*, became a 30 s video. Gemini-planned scenes: open-question hook, a three-option roadmap, one card per option (free-plan watermark visible):
 
-![Frames of a generated video](docs/readme/video-frames.png)
+![Frames of a video generated in the live app](docs/readme/ai-video-frames.png)
+
+Template showcase, 45 s, with a hand-written plan rendered by the same engine — open question → steps → cause chain → guess → answer → pick a number:
+
+![Frames of a template showcase video](docs/readme/video-frames.png)
 
 > The product UI is in Vietnamese, its target market. Code, documentation and this submission are in English.
 
