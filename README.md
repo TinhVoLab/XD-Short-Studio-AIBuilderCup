@@ -29,7 +29,7 @@ Short video is now the main channel for Vietnamese creators, teachers and small 
 | ![Idea step](docs/readme/step1-idea.png) | ![Script step](docs/readme/step2-script.png) | ![Voice step](docs/readme/step3-voice.png) |
 | Type one sentence, pick 15/30/60 s and a style. The scene count comes from the planner; plan limits and credits are shown up front. | Gemini writes every scene and picks its template. The preview column plays the **real scene** with the same engine as the export. | Pick a Gemini or Edge voice; scene length is fitted to the audio, captions follow each word. Then edit on the canvas and export MP4. |
 
-A real run in the live app — one sentence, *"Weekend: go out or stay home and study?"*, became a 30 s video. Gemini-planned scenes: open-question hook, a three-option roadmap, one card per option (free-plan watermark visible):
+A real run in the live app — one sentence, *"Weekend: go out or stay home and study?"*, became a 30 s video. AI-planned scenes: open-question hook, a three-option roadmap, one card per option (free-plan watermark visible):
 
 ![Frames of a video generated in the live app](docs/readme/ai-video-frames.png)
 
