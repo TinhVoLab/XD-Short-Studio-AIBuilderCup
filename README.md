@@ -4,7 +4,7 @@
 
 ### From one idea to a finished 9:16 short video — script, scene design, voice-over, captions and render — powered by Gemini on Google Cloud
 
-**Google Cloud AI Builder Cup 2026 · Theme: Media, Content & Digital Experiences**
+**Google Cloud AI Builder Cup 2026 · Theme: Media, Content & Digital Experiences · Team X-DMAIC Lab**
 
 | Live prototype | Demo video | Deck |
 |---|---|---|
@@ -132,6 +132,13 @@ docs/RENDER_PIPELINE.md         render infrastructure (Cloud Tasks + Cloud Run)
 - Log the chosen templates, avoid repeats across a creator's videos, and score plans on a fixed topic set
 - Template versions so saved projects never change when a template is revised; visual regression against the design artboards
 - Swap a scene's template inside the editor
+
+## Team X-DMAIC Lab
+
+| Member | Role |
+|---|---|
+| Võ Linh Tĩnh | Team leader |
+| Vương Thị Khánh Nhung | Team member |
 
 ## Licence
 
