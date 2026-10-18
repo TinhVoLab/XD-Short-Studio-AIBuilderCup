@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════
+   DESIGN SYSTEM: Select Styles (Custom Popover & Native)
+═══════════════════════════════════════════════════ */
+
+.selectContainer {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ---------------- Native Select Mode ---------------- */
+.nativeSelectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nativeSelect {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--text, #F0F0F0);
+  background: var(--surface-2, #1E1E1E);
+  border: 1px solid var(--border, #2A2A2A);
+  border-radius: var(--radius-sm, 6px);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 28px !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.nativeSelect option {
+  background: #181818;
+  color: #F0F0F0;
+}
+
+.nativeSelect:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nativeSelect:focus {
+  border-color: var(--accent, #BEFF01);
+  box-shadow: 0 0 0 1px var(--accent, #BEFF01), 0 0 12px rgba(190, 255, 1, 0.18);
+}
+
+.nativeChevron {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted, #888888);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------- Custom Popover Select Mode ---------------- */
+.triggerButton {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2, #1E1E1E);
+  border: 1px solid var(--border, #2A2A2A);
+  border-radius: var(--radius-sm, 6px);
+  color: var(--text, #F0F0F0);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.triggerButton:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.triggerButton.open {
+  border-color: var(--accent, #BEFF01);
+  box-shadow: 0 0 0 1px var(--accent, #BEFF01), 0 0 12px rgba(190, 255, 1, 0.18);
+  background: var(--surface-2, #1E1E1E);
+}
+
+.popoverDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #141418;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  overflow-y: auto;
+  max-height: 260px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.optionItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+
+.optionItem.selected {
+  background: rgba(190, 255, 1, 0.12);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.optionGroupHeader {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted, #777);
+  padding: 6px 8px 2px 8px;
+  letter-spacing: 0.5px;
+}
+
+/* ---------------- Sizes ---------------- */
+.sizeSm {
+  height: 30px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+}
+
+.sizeMd {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+}
+
+.sizeLg {
+  height: 42px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+}

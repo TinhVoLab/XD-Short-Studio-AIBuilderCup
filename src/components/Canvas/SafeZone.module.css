@@ -1,0 +1,514 @@
+/* ══════════════════════════════════════════
+   SafeZone.module.css
+   Shared CSS module for TikTokSafeZoneOverlay
+   and SafeZoneOverlay components
+   ══════════════════════════════════════════ */
+
+/* ── Base Overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* SafeZoneOverlay legacy uses zIndex 100 */
+.overlayLegacy {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Safe Zone Dashed Box ── */
+.safeBox {
+  position: absolute;
+  left: 20px;
+  top: 65px;
+  border: 1.5px dashed rgba(190, 255, 1, 0.45);
+  border-radius: 14px;
+  background-color: rgba(190, 255, 1, 0.015);
+  box-shadow: 0 0 20px rgba(190, 255, 1, 0.05);
+  pointer-events: none;
+}
+
+.safeBoxLegacy {
+  position: absolute;
+  left: 24px;
+  right: 54px;
+  top: 65px;
+  bottom: 150px;
+  border: 1.5px dashed rgba(190, 255, 1, 0.6);
+  border-radius: 8px;
+  background-color: rgba(190, 255, 1, 0.02);
+}
+
+.safeLabel {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(190, 255, 1, 0.75);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.safeLabelLegacy {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 9px;
+  color: rgba(190, 255, 1, 0.8);
+  font-weight: 800;
+  font-family: sans-serif;
+}
+
+/* ── Top Header Bar ── */
+.topBar {
+  height: 60px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 0 14px;
+  box-sizing: border-box;
+  opacity: 0.85;
+}
+
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topBarLiveText {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.topBarCenter {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.tabActive {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-bottom: 2px solid #FFFFFF;
+  padding-bottom: 2px;
+}
+
+.tabInactive {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.tabShorts {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.tabReelsIg {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+.tabReelsFb {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Legacy Top Bar */
+.topBarLegacy {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  opacity: 0.6;
+}
+
+.topBarLegacyAvatar {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.topBarLegacyAvatarLeft {
+  left: 16px;
+}
+
+.topBarLegacyAvatarRight {
+  right: 16px;
+}
+
+.topBarLegacyFollowing {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.topBarLegacyForYou {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 700;
+}
+
+/* ── Right Sidebar (Action Buttons) ── */
+.rightSidebar {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.85;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.avatarCircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.avatarPlusBadge {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #FE2C55;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.actionIcon {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.actionIconSm {
+  font-size: 19px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.actionCount {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.musicDisk {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #1E1E1E;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.musicDiskIcon {
+  font-size: 12px;
+}
+
+/* Legacy Right Column */
+.rightColLegacy {
+  position: absolute;
+  right: 8px;
+  bottom: 100px;
+  width: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  opacity: 0.75;
+}
+
+.legacyAvatarCircle {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  position: relative;
+}
+
+.legacyAvatarPlus {
+  width: 16px;
+  height: 16px;
+  background: #F8312F;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legacyAvatarPlusText {
+  color: #FFF;
+  font-size: 12px;
+  line-height: 1;
+  margin-top: -1px;
+}
+
+.legacyActionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.legacyActionIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.legacyActionCount {
+  font-size: 10px;
+  color: #FFF;
+  font-weight: 600;
+}
+
+.legacyActionBtnMt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* ── Bottom Bar ── */
+.bottomBar {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
+  padding: 24px 14px 12px 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0.85;
+}
+
+.accountRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.accountName {
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.followBadge {
+  font-size: 9px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.captionText {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.35;
+  max-width: 75%;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.audioLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.audioLineIcon {
+  font-size: 10px;
+}
+
+.audioLineText {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.seekbar {
+  width: 100%;
+  height: 2.5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  margin-top: 4px;
+  position: relative;
+}
+
+.seekbarFill {
+  width: 45%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+}
+
+/* Legacy Bottom Area */
+.bottomAreaLegacy {
+  position: absolute;
+  left: 16px;
+  right: 60px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0.8;
+}
+
+.legacyAccountName {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 700;
+}
+
+.legacyCaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.legacyCaptionLine {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.legacyCaptionLineShort {
+  width: 80%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.legacyAudioRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.legacyAudioIcon {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+}
+
+.legacyAudioBar {
+  width: 140px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.musicDiskLegacy {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 6px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.musicDiskLegacyCenter {
+  width: 16px;
+  height: 16px;
+  background: #FFF;
+  border-radius: 50%;
+}
+
+.seekbarLegacy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.seekbarFillLegacy {
+  width: 40%;
+  height: 100%;
+  background: #FFF;
+}

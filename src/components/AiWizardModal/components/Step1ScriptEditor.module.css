@@ -1,0 +1,153 @@
+/* ══════════════════════════════════════════
+   Step1ScriptEditor.module.css — bước 2 "Kịch bản"
+   Bố cục chung ở wizardLayout.module.css
+   ══════════════════════════════════════════ */
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* ── Suy luận của R1 ── */
+.reasoning {
+  padding: var(--space-3) var(--space-4);
+  border-radius: 14px;
+  background: var(--info-dim);
+  box-shadow: inset 0 0 0 1px var(--info-border);
+}
+
+.reasoningTitle {
+  font-size: var(--font-base);
+  font-weight: var(--fw-semibold);
+  color: var(--info);
+}
+
+.reasoningBody {
+  margin: var(--space-3) 0 0;
+  max-height: 160px;
+  overflow-y: auto;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-sm);
+  line-height: 1.5;
+  color: var(--text-sub);
+  white-space: pre-wrap;
+}
+
+/* ── Danh sách cảnh ── */
+.list {
+  margin: calc(-1 * var(--space-3)) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: 14px var(--space-4);
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--border);
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.row:hover {
+  background: var(--surface-3);
+}
+
+.row[data-active='true'] {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.rowMeta {
+  flex: none;
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 2px 0 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rowMeta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.roleTag {
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+.rowBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Lời thoại sửa tại chỗ: phẳng như văn bản, hiện khung khi đang sửa */
+.line,
+.line:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  padding: 4px 6px !important;
+  margin: -4px -6px;
+  font-size: var(--font-md) !important;
+  line-height: 1.55;
+  color: var(--text);
+  resize: none;
+}
+
+.line:focus {
+  background: var(--bg) !important;
+  border-color: var(--border-2) !important;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .rowMeta {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+}

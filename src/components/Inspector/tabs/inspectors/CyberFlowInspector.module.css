@@ -1,0 +1,146 @@
+/* ══════════════════════════════════════════
+   CyberFlowInspector.module.css
+   ══════════════════════════════════════════ */
+
+/* ── Cyber Card wrapper (tinted border per element type) ── */
+.cyberCard {
+  border-radius: 10px;
+  padding: 10px 12px;
+  /* border + background are inline (dynamic per element type color) */
+}
+
+/* ── Inspector Header ── */
+.inspectorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inspectorHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  /* color dynamic */
+}
+
+.inspectorBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  /* background + color + border dynamic */
+}
+
+/* ── ColorField row ── */
+.colorField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  min-height: 32px;
+}
+
+.colorFieldLabel {
+  font-size: 11px;
+  color: var(--text-sub);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Section label (above grids) ── */
+.sectionLabel {
+  margin-bottom: 4px;
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.sectionLabelMuted {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* ── 2-column grid ── */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* ── 3-column grid (1fr 1fr + icon) ── */
+.grid3Del {
+  display: grid;
+  grid-template-columns: 1fr 1fr 28px;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* ── 2-column grid with fixed right (title+badge) ── */
+.gridTitleBadge {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+/* ── Milestone / bar row (time+title+color) ── */
+.gridTimeTitle {
+  display: grid;
+  grid-template-columns: 60px 1fr 28px;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* ── Grid for bar items (name + value + color) ── */
+.gridBarItem {
+  display: grid;
+  grid-template-columns: 1fr 60px 28px;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* ── Color dot centering wrapper ── */
+.colorDotCenter {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Spacing helpers ── */
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb4 {
+  margin-bottom: 4px;
+}
+
+.mb6 {
+  margin-bottom: 6px;
+}
+
+.grid2mb4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 4px;
+}

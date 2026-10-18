@@ -1,0 +1,184 @@
+.nodeCardWrapper {
+  position: relative;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.cardMain {
+  position: relative;
+  width: 140px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cardMain:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.active .cardMain {
+  border-color: var(--accent);
+  box-shadow: 0 0 14px rgba(190, 255, 1, 0.35);
+}
+
+.climaxRole .cardMain {
+  border-color: #FF4500;
+  box-shadow: 0 0 16px rgba(255, 69, 0, 0.4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sceneIdx {
+  font-size: var(--font-xs);
+  font-weight: var(--fw-bold);
+  color: var(--text-muted);
+}
+
+.roleBadge {
+  font-size: 8px;
+  font-weight: var(--fw-black);
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.thumbContainer {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--surface-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.thumbAspectBox {
+  position: relative;
+  width: calc(120px * 9 / 16);
+  height: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.durationBadge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 8.5px;
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--text-sub);
+  padding-top: 2px;
+}
+
+.layerExpandBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 5px;
+  color: var(--text-sub);
+  font-size: 8.5px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.layerExpandBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.layerExpandBtn.expanded {
+  background: rgba(190, 255, 1, 0.1);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.chevronIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+.layerExpandBtn.expanded .chevronIcon {
+  transform: rotate(180deg);
+}
+
+/* Ports */
+.portStyleIn {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 1.5px solid var(--bg-app);
+  box-shadow: 0 0 6px var(--accent);
+  z-index: 10;
+}
+
+.portSeqIn {
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #FFB800;
+  border: 1.5px solid var(--bg-app);
+  box-shadow: 0 0 6px #FFB800;
+  z-index: 10;
+}
+
+.portSeqOut {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #FFB800;
+  border: 1.5px solid var(--bg-app);
+  box-shadow: 0 0 6px #FFB800;
+  z-index: 10;
+}

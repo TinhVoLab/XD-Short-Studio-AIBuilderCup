@@ -1,0 +1,8 @@
+# Cloud Build: dựng image Render Worker từ Dockerfile.cloudrun (gọi bởi scripts/deploy-render-worker.sh)
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-f', 'Dockerfile.cloudrun', '-t', '${_IMAGE}', '.']
+images: ['${_IMAGE}']
+options:
+  machineType: E2_HIGHCPU_8
+timeout: 1800s

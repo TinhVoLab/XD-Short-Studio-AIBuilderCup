@@ -1,0 +1,198 @@
+/* Base Button */
+.btnBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition, 0.15s ease);
+  box-sizing: border-box;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden; /* For focus ring constraints if needed, but usually we want outline to overflow */
+}
+
+/* Accessibility Focus Ring */
+.btnBase:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Disabled State */
+.btnBase:disabled,
+.btnBase.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}
+
+/* ---------------- Shapes ---------------- */
+.shapeRounded {
+  border-radius: var(--radius-sm, 5px);
+}
+.shapePill {
+  border-radius: var(--radius-full, 9999px);
+}
+.shapeCircle {
+  border-radius: 50%;
+}
+
+/* ---------------- Sizes ---------------- */
+/* Text Buttons */
+.sizeXs { height: 24px; padding: 2px 8px; font-size: var(--font-xs, 10px); font-weight: var(--fw-semibold, 600); }
+.sizeSm { height: 30px; padding: 4px 12px; font-size: var(--font-sm, 11px); font-weight: var(--fw-semibold, 600); }
+.sizeMd { height: 36px; padding: 6px 16px; font-size: var(--font-base, 12px); font-weight: var(--fw-bold, 700); }
+.sizeLg { height: 42px; padding: 10px 20px; font-size: var(--font-md, 14px); font-weight: var(--fw-bold, 700); }
+
+/* Icon Buttons (asIcon=true) */
+.sizeIconXs { height: 22px; width: 22px; padding: 0; font-size: var(--font-xs, 10px); }
+.sizeIconSm { height: 28px; width: 28px; padding: 0; font-size: var(--font-sm, 11px); }
+.sizeIconMd { height: 34px; width: 34px; padding: 0; font-size: var(--font-base, 12px); }
+
+/* ---------------- Variants ---------------- */
+
+/* 1. Primary */
+.variantPrimary {
+  background: linear-gradient(135deg, #BEFF01 0%, #9EE000 100%);
+  color: #000;
+}
+.variantPrimary:not(:disabled):hover {
+  background: linear-gradient(135deg, #caff33 0%, #a8ed00 100%);
+  box-shadow: 0 0 16px rgba(190, 255, 1, 0.25);
+  transform: translateY(-1px);
+}
+.variantPrimary:not(:disabled):active {
+  transform: translateY(1px);
+  box-shadow: 0 0 8px rgba(190, 255, 1, 0.15);
+}
+
+/* 2. Secondary */
+.variantSecondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFF;
+}
+.variantSecondary:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. Ghost */
+.variantGhost {
+  background: transparent;
+  color: #AAA;
+  border: 1px solid transparent;
+}
+.variantGhost:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFF;
+}
+
+/* 4. Outline */
+.variantOutline {
+  background: transparent;
+  border: 1px solid #444;
+  color: #FFF;
+}
+.variantOutline:not(:disabled):hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(190, 255, 1, 0.05);
+}
+
+/* 5. Danger */
+.variantDanger {
+  background: var(--danger-dim, rgba(255, 68, 68, 0.12));
+  border: 1px solid var(--danger-border, rgba(255, 68, 68, 0.28));
+  color: var(--danger, #FF4444);
+}
+.variantDanger:not(:disabled):hover {
+  background: rgba(255, 68, 68, 0.2);
+  border-color: var(--danger, #FF4444);
+  color: #FFF;
+}
+.variantDanger.solid {
+  background: var(--danger, #FF4444);
+  border-color: var(--danger, #FF4444);
+  color: #FFF;
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.3);
+}
+.variantDanger.solid:not(:disabled):hover {
+  background: #FF5555;
+  box-shadow: 0 0 12px rgba(255, 68, 68, 0.5);
+}
+
+/* 6. Purple */
+.variantPurple {
+  background: linear-gradient(135deg, #A855F7 0%, #7E22CE 100%);
+  color: #FFF;
+  border: 1px solid transparent;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.25);
+}
+.variantPurple:not(:disabled):hover {
+  background: linear-gradient(135deg, #b771f8 0%, #8b2fdd 100%);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
+}
+
+/* 7. Pill */
+.variantPill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #999;
+}
+.variantPill:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #DDD;
+}
+.variantPill.selected {
+  background: rgba(190, 255, 1, 0.15);
+  border-color: rgba(190, 255, 1, 0.4);
+  color: #BEFF01;
+}
+
+/* ---------------- Icons & Layout ---------------- */
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Zero Layout Shift Loading */
+.loadingTextHide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinnerContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

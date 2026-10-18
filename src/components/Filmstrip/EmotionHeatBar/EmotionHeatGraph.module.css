@@ -1,0 +1,198 @@
+.graphWrapper {
+  position: relative;
+  width: 100%;
+  background: var(--surface-1);
+  border-top: 1px solid var(--border);
+  padding: 6px var(--space-4) 4px;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: var(--font-xs);
+  font-weight: var(--fw-bold);
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 9.5px;
+  color: var(--text-sub);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legendDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.canvasArea {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  cursor: crosshair;
+}
+
+/* Y Axis labels */
+.yAxis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 16px;
+  width: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  font-size: 8px;
+  color: var(--text-muted);
+  font-weight: var(--fw-semibold);
+  padding: 2px 0;
+  z-index: 5;
+}
+
+.chartContainer {
+  position: absolute;
+  left: 32px;
+  right: 8px;
+  top: 0;
+  bottom: 16px;
+}
+
+.svgChart {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: rgba(255, 255, 255, 0.04);
+  stroke-width: 1;
+}
+
+.waveArea {
+  fill: url(#heatAreaGradient);
+}
+
+.waveStroke {
+  fill: none;
+  stroke: #BEFF01;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 8px rgba(190, 255, 1, 0.45));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.peakPinLine {
+  stroke-width: 1.5;
+  stroke-dasharray: 2 2;
+  opacity: 0.85;
+}
+
+/* Floating Badges */
+.badgeCard {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
+  margin-top: -6px;
+  transition: transform 0.15s ease;
+}
+
+.badgeCard:hover {
+  transform: translate(-50%, -100%) scale(1.08);
+}
+
+.badgeBox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(13, 17, 23, 0.94);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badgeLabel {
+  font-size: 9px;
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.badgeScore {
+  font-size: 9.5px;
+  font-weight: var(--fw-black);
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+/* X Axis time ticks */
+.xAxis {
+  position: absolute;
+  left: 32px;
+  right: 8px;
+  bottom: 0;
+  height: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  font-size: 8px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 2px;
+}
+
+/* Vertical Playhead Cursor */
+.playheadNeedle {
+  position: absolute;
+  top: 0;
+  bottom: 16px;
+  width: 1.5px;
+  background: #FF3366;
+  box-shadow: 0 0 6px #FF3366;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.playheadDot {
+  position: absolute;
+  top: -2px;
+  left: -2.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF3366;
+  box-shadow: 0 0 6px #FF3366;
+}

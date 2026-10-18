@@ -1,0 +1,233 @@
+/* ══════════════════════════════════════════
+   wizardLayout.module.css — bố cục chung của 3 bước wizard
+   Cột nội dung cuộn + cột xem trước cố định + footer dính đáy, và các mảnh dùng chung
+   ══════════════════════════════════════════ */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: var(--space-6) var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  scrollbar-width: thin;
+}
+
+.warnBanner {
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  background: var(--warning-dim);
+  color: var(--warning);
+  font-size: var(--font-base);
+}
+
+/* ── Tiêu đề ── */
+.heroLabel {
+  display: block;
+  margin: 0;
+  font-size: var(--font-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--text);
+}
+
+.heroHint {
+  margin: 6px 0 0;
+  font-size: var(--font-md);
+  color: var(--text-sub);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-md);
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.sectionNote {
+  font-size: var(--font-base);
+  font-weight: var(--fw-normal);
+  color: var(--text-muted);
+}
+
+/* ── Chip, nhãn ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--surface-3);
+  color: var(--text-sub);
+  font: inherit;
+  font-size: var(--font-base);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chip:hover {
+  color: var(--text);
+  background: var(--border-2);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+
+.badge[data-tone='accent'] {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.badge[data-tone='warning'] {
+  background: var(--warning-dim);
+  color: var(--warning);
+}
+
+.badge[data-tone='muted'] {
+  background: var(--surface-3);
+  color: var(--text-sub);
+}
+
+/* ── Cột xem trước ── */
+.preview {
+  flex: none;
+  width: 320px;
+  box-sizing: border-box;
+  padding: var(--space-6);
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  overflow-y: auto;
+}
+
+.previewHead {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+/* Khung 9:16 chứa video xem trước */
+.screen {
+  width: 200px;
+  height: 356px;
+  flex: none;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--surface-2);
+  box-shadow: 0 0 0 1px var(--border-2), 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.summary {
+  align-self: stretch;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 10px;
+  column-gap: var(--space-3);
+  font-size: var(--font-base);
+}
+
+.summary dt {
+  color: var(--text-muted);
+}
+
+.summary dd {
+  margin: 0;
+  text-align: right;
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+}
+
+/* ── Footer ── */
+.footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5) var(--space-3) var(--space-8);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.credit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  font-size: var(--font-base);
+  color: var(--text-sub);
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ── Màn hình hẹp: xếp cột xem trước xuống dưới ── */
+@media (max-width: 900px) {
+  .body {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .main {
+    overflow: visible;
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .preview {
+    width: auto;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    overflow: visible;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    padding: var(--space-3) var(--space-4);
+  }
+}

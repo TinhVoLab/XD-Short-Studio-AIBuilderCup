@@ -1,0 +1,134 @@
+.bgmTrack {
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.bgmBar {
+  background: linear-gradient(90deg, #1e1338 0%, #0d0a1f 100%);
+  border: 1px solid rgba(190, 255, 1, 0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.leftInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.musicIcon {
+  color: var(--accent, #BEFF01);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.songName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.waveBar {
+  width: 3px;
+  background: var(--accent, #BEFF01);
+  border-radius: 1.5px;
+  animation: wave 1.2s infinite ease-in-out alternate;
+}
+
+@keyframes wave {
+  0% { height: 4px; opacity: 0.4; }
+  100% { height: 16px; opacity: 1; }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.volSlider {
+  width: 60px;
+  accent-color: var(--accent, #BEFF01);
+  height: 3px;
+  cursor: pointer;
+}
+
+.volVal {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent, #BEFF01);
+  min-width: 28px;
+}
+
+.actBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ddd;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.actBtn:hover {
+  background: rgba(190, 255, 1, 0.15);
+  color: var(--accent, #BEFF01);
+  border-color: var(--accent, #BEFF01);
+}
+
+.emptyState {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.emptyState:hover {
+  border-color: var(--accent, #BEFF01);
+  color: var(--accent, #BEFF01);
+  background: rgba(190, 255, 1, 0.05);
+}

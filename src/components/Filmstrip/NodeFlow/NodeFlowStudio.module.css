@@ -1,0 +1,115 @@
+.studioContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-app);
+  overflow: hidden;
+  user-select: none;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px var(--space-4);
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.breadcrumbGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-xs);
+}
+
+.breadcrumbRoot {
+  color: var(--text-muted);
+}
+
+.breadcrumbDivider {
+  color: var(--text-muted);
+}
+
+.breadcrumbCurrent {
+  color: var(--text);
+  font-weight: var(--fw-bold);
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.canvasWrapper {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+  background-color: #080a0f;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-5) var(--space-8);
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.svgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brandBusRow {
+  position: relative;
+  z-index: 5;
+  margin-bottom: var(--space-8);
+}
+
+.scenesRow {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  padding: 0 var(--space-4);
+}
+
+.sceneWrapper {
+  position: relative;
+}
+
+/* Connection wires animation */
+.wireBrand {
+  stroke: rgba(190, 255, 1, 0.45);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 4 3;
+  animation: wireFlow 20s linear infinite;
+}
+
+.wireSequence {
+  stroke: #FFB800;
+  stroke-width: 2;
+  fill: none;
+  filter: drop-shadow(0 0 4px rgba(255, 184, 0, 0.4));
+}
+
+@keyframes wireFlow {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

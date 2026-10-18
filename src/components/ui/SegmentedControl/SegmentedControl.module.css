@@ -1,0 +1,92 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+  position: relative;
+  user-select: none;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.fullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.fullWidth .segment {
+  flex: 1 0 auto;
+  min-width: max-content;
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  outline: none;
+  padding: 0 10px;
+}
+
+.segment:hover:not(.active):not(:disabled) {
+  color: #DDD;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.segment:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Active Segment */
+.active {
+  background: rgba(190, 255, 1, 0.15);
+  color: #BEFF01;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Sizes */
+.sizeXs {
+  height: 22px;
+  font-size: 10px;
+  padding: 0 6px;
+}
+
+.sizeSm {
+  height: 28px;
+  font-size: 11.5px;
+  padding: 0 10px;
+}
+
+.sizeMd {
+  height: 34px;
+  font-size: 12.5px;
+  padding: 0 14px;
+}

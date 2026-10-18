@@ -1,0 +1,329 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  /* Consistent bottom breathing room */
+  padding-bottom: var(--space-4);
+}
+
+/* ── Text Input ── */
+.textInput {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 7px 10px;
+  font-size: var(--font-sm);
+  outline: none;
+  transition: border-color var(--transition);
+  margin-bottom: var(--space-2);
+  resize: vertical;
+  min-height: 48px;
+  max-height: 140px;
+  line-height: var(--lh-normal);
+}
+.textInput:focus { border-color: var(--accent); }
+
+/* ── Font Row ── */
+.fontRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.fontSelectWrap,
+.weightWrap {
+  display: flex;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.alignWrap { margin-bottom: 0; }
+
+/* ── 3-col metrics grid ── */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-15);
+  margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────────────────
+   COLOR MODE SWITCHER  (Màu chữ — 2-row layout)
+───────────────────────────────────────────────────── */
+
+/* Row 1: label + tab switcher */
+.colorModeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+  padding: var(--space-15) 0 var(--space-1);
+}
+
+.colorModeSwitcher {
+  display: flex;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 2px;
+}
+
+.modeBtn {
+  font-size: var(--font-xs);
+  font-weight: var(--fw-medium);
+  /* Inactive: readable but clearly secondary vs active */
+  color: var(--text-sub);
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 9px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+.modeBtn:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+.modeBtnActive {
+  background: var(--accent);
+  color: #000;
+  font-weight: var(--fw-semibold);
+}
+.modeBtnActive:hover { background: var(--accent); color: #000; }
+
+/* Row 2: color input rows — Studio NLE Standard */
+.colorPickerRow {
+  padding-bottom: var(--space-2);
+}
+
+/* Single color: bordered row */
+.colorInputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+  height: 28px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.12s ease;
+}
+.colorInputRow:hover,
+.colorInputRow:focus-within {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Editable Hex Input */
+.hexInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-sub);
+  font-size: var(--font-xs);
+  font-family: monospace;
+  letter-spacing: 0.3px;
+  outline: none;
+  min-width: 0;
+  padding: 0;
+  height: 100%;
+}
+.hexInput:focus {
+  color: var(--text);
+}
+
+/* ── Gradient Studio Container ── */
+.gradientBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 1. Live Gradient Preview Bar */
+.gradientBar {
+  height: 8px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 2. Color Stops Row: [Stop 1] [⇄ Swap] [Stop 2] */
+.stopsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.stopInput {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-15);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+  height: 28px;
+  box-sizing: border-box;
+  min-width: 0;
+  transition: border-color 0.12s ease;
+}
+.stopInput:hover,
+.stopInput:focus-within {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.swapBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.12s ease;
+}
+.swapBtn:hover {
+  background: var(--surface-3);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+/* 3. Direction & Angle Row */
+.directionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-15);
+}
+
+.angleChips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: nowrap;
+}
+
+.directionBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 3px 6px;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+.directionBtn:hover {
+  color: var(--text-sub);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.directionBtnActive {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+  font-weight: var(--fw-semibold);
+}
+
+.gradAngleInput {
+  max-width: 64px;
+  flex-shrink: 0;
+}
+
+/* 4. Curated Presets Palette */
+.presetsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-15);
+  padding-top: var(--space-1);
+  overflow-x: auto;
+}
+
+.presetPill {
+  flex: 1;
+  height: 14px;
+  min-width: 22px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  padding: 0;
+}
+.presetPill:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────
+   TOGGLE EFFECT ROWS  (Hộp nền / Viền / Bóng)
+───────────────────────────────────────────────────── */
+
+/* Standard prop label */
+.propLabel {
+  font-size: var(--font-sm);
+  color: var(--text-sub);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+/* Dimmed when effect is OFF */
+.propLabelOff {
+  color: var(--text-muted);
+}
+
+/* Toggle row: [label] ── [color dot?] [toggle] */
+.toggleEffectRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  padding: var(--space-1) 0;
+}
+.toggleRowRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* Sub-row (expanded controls): 2-col grid */
+.subControlRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-15);
+  padding-bottom: var(--space-15);
+}
+
+/* Slider wrapper inside effect section */
+.sliderWrap {
+  padding: var(--space-1) 0 var(--space-3);
+}
+/* Last slider: no divider below, add extra bottom room */
+.sliderWrapLast {
+  padding-bottom: var(--space-4);
+}
+
+/* Hairline divider between effect rows */
+.effectDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}

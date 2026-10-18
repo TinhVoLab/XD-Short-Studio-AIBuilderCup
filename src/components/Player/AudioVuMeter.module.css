@@ -1,0 +1,132 @@
+.vuContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px 6px;
+  height: 24px;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: default;
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 13px;
+  width: 14px;
+}
+
+.eqBar {
+  flex: 1;
+  background: var(--accent);
+  border-radius: 1px;
+  min-height: 2px;
+  height: 2px;
+  transition: height 0.08s ease;
+}
+
+.playing .eqBar:nth-child(1) {
+  animation: eqPulse1 0.45s ease-in-out infinite alternate;
+}
+.playing .eqBar:nth-child(2) {
+  animation: eqPulse2 0.35s ease-in-out infinite alternate 0.1s;
+}
+.playing .eqBar:nth-child(3) {
+  animation: eqPulse3 0.5s ease-in-out infinite alternate 0.05s;
+}
+.playing .eqBar:nth-child(4) {
+  animation: eqPulse4 0.4s ease-in-out infinite alternate 0.15s;
+}
+
+@keyframes eqPulse1 {
+  0% { height: 2px; }
+  100% { height: 11px; }
+}
+@keyframes eqPulse2 {
+  0% { height: 4px; }
+  100% { height: 13px; }
+}
+@keyframes eqPulse3 {
+  0% { height: 3px; }
+  100% { height: 9px; }
+}
+@keyframes eqPulse4 {
+  0% { height: 2px; }
+  100% { height: 12px; }
+}
+
+.stereoChannels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 36px;
+}
+
+.channelRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.channelLabel {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 6px;
+  line-height: 1;
+}
+
+.meterTrack {
+  flex: 1;
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meterFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e 0%, #eab308 70%, #ef4444 100%);
+  border-radius: 1px;
+  transition: width 0.06s ease-out;
+}
+
+.playing .meterFillL {
+  animation: vuMeterL 0.38s ease-in-out infinite alternate;
+}
+.playing .meterFillR {
+  animation: vuMeterR 0.42s ease-in-out infinite alternate 0.08s;
+}
+
+@keyframes vuMeterL {
+  0% { width: 15%; }
+  35% { width: 75%; }
+  60% { width: 45%; }
+  85% { width: 92%; }
+  100% { width: 60%; }
+}
+
+@keyframes vuMeterR {
+  0% { width: 25%; }
+  40% { width: 65%; }
+  70% { width: 88%; }
+  90% { width: 50%; }
+  100% { width: 78%; }
+}
+
+.muted .meterFill {
+  width: 0% !important;
+  animation: none !important;
+}
+
+.muted .eqBar {
+  height: 2px !important;
+  background: var(--text-muted);
+  animation: none !important;
+}

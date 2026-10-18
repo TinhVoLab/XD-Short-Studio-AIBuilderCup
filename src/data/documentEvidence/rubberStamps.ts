@@ -1,0 +1,58 @@
+import { DocumentEvidencePresetItem } from './types'
+
+export const RUBBER_STAMP_PRESETS: DocumentEvidencePresetItem[] = [
+  {
+    id: 'stamp-top-secret',
+    variant: 'stamp',
+    category: 'stamp',
+    label: 'Dấu Tuyệt Mật',
+    previewBadge: 'TUYỆT MẬT',
+    data: {
+      variant: 'stamp',
+      stampVariant: 'secret-box',
+      title: 'TUYỆT MẬT',
+      subtitle: 'CHỈ LƯU HÀNH NỘI BỘ',
+      content: 'Hồ sơ tài liệu tuyệt mật cấp độ cao nhất',
+      highlight: 'TUYỆT MẬT',
+      accentColor: '#FF2A2A',
+      badge: 'TOP SECRET',
+    },
+    animPreset: 'bounce',
+  },
+  {
+    id: 'stamp-approved',
+    variant: 'stamp',
+    category: 'stamp',
+    label: 'Dấu Phê Duyệt',
+    previewBadge: 'ĐÃ DUYỆT',
+    data: {
+      variant: 'stamp',
+      stampVariant: 'approved-circle',
+      title: 'ĐÃ PHÊ DUYỆT',
+      subtitle: 'HỢP CHUẨN QUỐC TẾ',
+      content: 'Dự án đã chính thức được phê duyệt 100%',
+      highlight: 'ĐÃ PHÊ DUYỆT',
+      accentColor: '#00E676',
+      badge: 'APPROVED',
+    },
+    animPreset: 'bounce',
+  },
+  {
+    id: 'stamp-rejected',
+    variant: 'stamp',
+    category: 'stamp',
+    label: 'Dấu Cảnh Báo',
+    previewBadge: 'CẢNH BÁO',
+    data: {
+      variant: 'stamp',
+      stampVariant: 'warning-hazard',
+      title: 'CẢNH BÁO LỪA ĐẢO',
+      subtitle: 'DANH SÁCH ĐEN TÀI CHÍNH',
+      content: 'Tuyệt đối không tham gia các mô hình đa cấp biến tướng này!',
+      highlight: 'CẢNH BÁO LỪA ĐẢO',
+      accentColor: '#FF1744',
+      badge: 'SCAM ALERT',
+    },
+    animPreset: 'bounce',
+  },
+]

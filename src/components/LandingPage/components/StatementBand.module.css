@@ -1,0 +1,93 @@
+.band {
+  margin-top: 140px;
+  background: var(--l-ivory);
+  color: var(--l-ink);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 128px 24px;
+}
+
+.kicker {
+  margin-bottom: 24px;
+  font: 500 12px var(--l-mono);
+  letter-spacing: 0.12em;
+  color: #6b665c;
+}
+
+.title {
+  margin: 0;
+  max-width: none;
+  /* 1.14: chừa chỗ cho dấu tiếng Việt chồng tầng (ộ, ừ, ỗ) và chữ nghiêng Playfair */
+  font: 700 clamp(36px, 5.4vw, 68px)/1.14 var(--l-display);
+  letter-spacing: -0.04em;
+}
+
+/* Màn rộng: ngắt đúng 2 vế của câu (dòng 2 ≈ 87vw, luôn vừa khung) */
+@media (min-width: 1100px) {
+  .line {
+    display: block;
+  }
+}
+
+/* Chưa có nhận xét: dải chỉ còn câu tuyên ngôn nên thu gọn khoảng đệm */
+.innerSolo {
+  padding-top: 104px;
+  padding-bottom: 104px;
+}
+
+.quotes {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  border-top: 1px solid rgba(11, 10, 9, 0.15);
+}
+
+.quote {
+  margin: 0;
+  padding: 32px 32px 0 0;
+}
+
+.quote blockquote {
+  margin: 0;
+  font: 400 19px/1.55 var(--l-body);
+}
+
+.quote figcaption {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 999px;
+  background: #dad4c7;
+}
+
+.name {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.role {
+  display: block;
+  font-size: 13px;
+  color: #5e594f;
+}
+
+@media (max-width: 640px) {
+  .band {
+    margin-top: 96px;
+  }
+  .inner,
+  .innerSolo {
+    padding: 80px 24px;
+  }
+}

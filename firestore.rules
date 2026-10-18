@@ -1,0 +1,110 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function: Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function: Check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Helper function: SuperAdmin privilege (Cryptographic Custom Claims)
+    function isSuperAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.admin == true ||
+        request.auth.token.role == 'admin'
+      );
+    }
+
+    // User profile and sub-collections (projects, settings, etc.)
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isSuperAdmin();
+      
+      // Prevent privilege escalation: users cannot modify subscription or role fields directly
+      allow create: if isSuperAdmin() || (
+        isOwner(userId) &&
+        request.resource.data.planTier == 'free' &&
+        request.resource.data.role == 'user' &&
+        !('bonusVideos' in request.resource.data)
+      );
+      
+      allow update: if isSuperAdmin() || (
+        isOwner(userId) &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'planTier',
+          'role',
+          'subscriptionExpiresAt',
+          'subscriptionPeriod',
+          'subscriptionStatus',
+          'licenseKeyUsed',
+          'bonusVideos'
+        ])
+      );
+
+      allow delete: if isSuperAdmin();
+
+      match /projects/{projectId} {
+        allow read, write: if isOwner(userId) || isSuperAdmin();
+
+        match /{subpath=**} {
+          allow read, write: if isOwner(userId) || isSuperAdmin();
+        }
+      }
+    }
+
+    // Public system configuration & plans (readable by all, editable by SuperAdmin)
+    match /system_settings/{docId} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    match /system_plans/{planId} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    match /plans/{planId} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    // License Keys: Strictly internal, accessible only by SuperAdmin or Backend Admin SDK
+    match /license_keys/{key} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    // Transactions: Users can read their own receipts, only SuperAdmin/Backend can write
+    match /transactions/{txId} {
+      allow read: if isSuperAdmin() || (isAuthenticated() && resource.data.targetUid == request.auth.uid);
+      allow write: if isSuperAdmin();
+    }
+
+    // Usage tracking & Render jobs: Backend Admin SDK only
+    match /ai_usage/{id} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    match /render_usage/{id} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    match /render_jobs/{jobId} {
+      allow read: if isSuperAdmin() || (isAuthenticated() && resource.data.userId == request.auth.uid);
+      allow write: if isSuperAdmin();
+    }
+
+    // AI Generation Logs & Daily Stats: SuperAdmin & Backend Admin SDK only
+    match /ai_generation_logs/{id} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    match /ai_daily_stats/{id} {
+      allow read, write: if isSuperAdmin();
+    }
+  }
+}

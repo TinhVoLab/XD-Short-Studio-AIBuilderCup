@@ -1,0 +1,28 @@
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.cols3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cols4 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.colsAuto {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.colsAuto > * {
+  flex: 1;
+  min-width: 0;
+}

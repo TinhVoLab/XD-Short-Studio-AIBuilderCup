@@ -1,0 +1,561 @@
+/* ══════════════════════════════════════════
+   Step0IdeaSettings.module.css — bước 1 "Ý tưởng"
+   Bố cục chung (cột, footer, chip, nhãn) ở wizardLayout.module.css
+   ══════════════════════════════════════════ */
+
+/* ── Banner ── */
+.draftBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  background: var(--accent-dim);
+  font-size: var(--font-base);
+  color: var(--text);
+}
+
+.draftBanner strong {
+  color: var(--accent);
+}
+
+/* ── Ý tưởng ── */
+.ideaBox {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-radius: 16px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--border);
+  transition: box-shadow 0.15s ease;
+}
+
+.ideaBox[data-filled='true'],
+.ideaBox:focus-within {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.ideaInput,
+.ideaInput:focus {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.55;
+  resize: none;
+}
+
+.ideaTools {
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.counter {
+  margin-left: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.counter[data-warn='true'] {
+  color: var(--warning);
+}
+
+.sourceBox {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.sourceHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: var(--font-base);
+  color: var(--text-sub);
+}
+
+.sourceHead .counter {
+  margin-left: 0;
+}
+
+.card:focus-visible,
+.advancedToggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.quickRow {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.quickLabel {
+  font-size: var(--font-base);
+  color: var(--text-muted);
+}
+
+/* ── Thẻ chọn (thời lượng, phong cách, bảng màu) ── */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.cardWrap {
+  display: flex;
+}
+
+.cardWrap > .card {
+  flex: 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--border);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover:not(:disabled) {
+  background: var(--surface-3);
+}
+
+.card[data-active='true'] {
+  background: var(--accent-dim);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.card:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.durTop {
+  align-self: stretch;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.durSec {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cardName {
+  font-size: var(--font-md);
+  font-weight: var(--fw-semibold);
+}
+
+.cardDesc {
+  font-size: var(--font-base);
+  line-height: 1.45;
+  color: var(--text-sub);
+}
+
+.presetCard {
+  padding: 10px 10px 14px;
+  gap: 8px;
+}
+
+.presetHead {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Ảnh thu nhỏ khung mẫu: một màn hình 9:16 nhỏ */
+.thumb {
+  align-self: stretch;
+  height: 104px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.thumbPhone {
+  width: 52px;
+  height: 90px;
+  border-radius: 8px;
+  padding: 8px 7px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.thumbNumber {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.thumbFormula {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.thumbLine {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.thumbBlob {
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.thumbTile {
+  position: absolute;
+  right: 6px;
+  top: 32px;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  transform: rotate(18deg);
+}
+
+/* ── Tuỳ chỉnh nâng cao ── */
+.advanced {
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.advancedToggle {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.advancedTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: var(--font-md);
+  font-weight: var(--fw-semibold);
+}
+
+.chevron {
+  color: var(--text-sub);
+  transition: transform 0.2s ease;
+}
+
+.chevron[data-open='true'] {
+  transform: rotate(180deg);
+}
+
+.advancedBody {
+  padding: 0 var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.fieldLabel {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-base);
+  color: var(--text-sub);
+}
+
+.fieldHint {
+  margin: 6px 0 0;
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+.fieldWarn {
+  margin: 6px 0 0;
+  font-size: var(--font-sm);
+  color: var(--warning);
+}
+
+.paletteGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.paletteCard {
+  padding: 10px;
+  gap: 8px;
+}
+
+.swatches {
+  display: flex;
+  gap: 3px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.paletteName {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+/* Khung 9:16 — màu lấy từ bảng màu video đang chọn */
+.phone {
+  width: 200px;
+  height: 356px;
+  flex: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 16px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 0 1px var(--border-2), 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.phoneTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phoneTag {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+}
+
+.phoneTime {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9px;
+  opacity: 0.6;
+}
+
+.phoneTitle {
+  margin-top: 14px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.phoneTitle[data-long='true'] {
+  font-size: 17px;
+}
+
+.phoneRule {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.phoneBottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phoneSub {
+  align-self: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+}
+
+.phoneBars {
+  display: flex;
+  gap: 3px;
+}
+
+.phoneBar {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* ── Tiến trình tạo kịch bản ── */
+.telemetryBox {
+  flex-shrink: 0;
+  padding: 14px var(--space-6);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.telemetryStages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.telemetryStage {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.telemetryStageDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-xs);
+  font-weight: 800;
+  flex-shrink: 0;
+  background: var(--surface-3);
+  color: var(--text-muted);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.telemetryStageDot[data-state='active'] {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.telemetryStageDot[data-state='done'] {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.telemetryStageText {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  color: var(--text-sub);
+}
+
+.telemetryStageText[data-active='true'] {
+  color: var(--accent);
+}
+
+.telemetryStageLine {
+  flex: 1;
+  height: 1px;
+  margin: 0 4px;
+  background: var(--border);
+}
+
+.telemetryStageLine[data-done='true'] {
+  background: var(--accent);
+}
+
+.telemetryFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.telemetryLog {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-sm);
+  color: var(--text-sub);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.telemetryPulseOrb {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulseOrb 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseOrb {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.4; }
+}
+
+.telemetryPct {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--font-base);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+}
+
+.telemetryTrack {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.telemetryFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+/* ── Màn hình hẹp ── */
+@media (max-width: 900px) {
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  .paletteGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

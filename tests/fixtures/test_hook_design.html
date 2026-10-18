@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedural Hook Design Studio v2 — 9 Layouts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-app: #080a0f;
+            --surface-1: #0d1117;
+            --surface-2: #161b22;
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f0f6fc;
+            --text-sub: #8b949e;
+            --accent: #BEFF01;
+            --accent-dim: rgba(190, 255, 1, 0.12);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg-app);
+            color: var(--text);
+            font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            gap: 40px;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 400px;
+            background: var(--surface-1);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .sidebar h1 { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .control-group { display: flex; flex-direction: column; gap: 6px; }
+        .control-label {
+            font-size: 11.5px; font-weight: 600; color: var(--text-sub);
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        textarea, select {
+            width: 100%; background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text); padding: 10px 12px;
+            font-family: inherit; font-size: 13px; outline: none; transition: border-color 0.2s;
+        }
+        textarea:focus, select:focus { border-color: var(--accent); }
+        textarea { resize: vertical; min-height: 68px; line-height: 1.4; }
+
+        .section-divider {
+            border: none; border-top: 1px solid var(--border); margin: 0;
+        }
+        .section-title {
+            font-size: 9.5px; font-weight: 700; color: var(--text-sub);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .style-pills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+        .style-pill-btn {
+            background: var(--surface-2); border: 1px solid var(--border);
+            color: var(--text-sub); border-radius: 6px; padding: 8px 4px;
+            font-size: 11px; font-weight: 600; cursor: pointer; text-align: center;
+            transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 3px;
+        }
+        .style-pill-btn.active {
+            background: var(--accent-dim); border-color: var(--accent); color: var(--accent);
+        }
+        .style-pill-btn.new-algo {
+            border-style: dashed;
+        }
+        .style-pill-btn.new-algo.active {
+            border-style: solid;
+        }
+        .pill-tag { font-size: 8.5px; opacity: 0.65; font-weight: 400; }
+        .pill-badge {
+            font-size: 7.5px; font-weight: 900; background: var(--accent); color: #000;
+            padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px;
+        }
+
+        .btn-generate {
+            background: var(--accent); color: #000; border: none; border-radius: 6px;
+            padding: 12px; font-size: 13px; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-generate:hover { opacity: 0.9; }
+
+        .math-readout {
+            background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px;
+            padding: 12px; font-size: 11px; font-family: monospace; color: #a5d6ff;
+            max-height: 130px; overflow-y: auto; line-height: 1.55;
+        }
+
+        /* ── Canvas Frame ── */
+        .preview-wrapper { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .canvas-frame {
+            width: 360px; height: 640px; background: #000;
+            position: relative; border-radius: 24px; overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1);
+        }
+        .canvas-ambient-glow {
+            position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
+            width: 320px; height: 320px; pointer-events: none; z-index: 1; transition: background 0.4s;
+        }
+        .safe-zone-overlay {
+            position: absolute; inset: 0; pointer-events: none; z-index: 100;
+            border-top: 1px dashed rgba(255,255,255,0.12);
+            border-bottom: 1px dashed rgba(255,255,255,0.12);
+            margin: 60px 0 100px 0;
+        }
+        .canvas-content { position: absolute; inset: 0; z-index: 10; }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.92) translateY(10px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .canvas-content > * { animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+        /* ═══════════════════════════════════════════════════════════
+           6 LAYOUTS CŨ (Giữ nguyên)
+           ═══════════════════════════════════════════════════════════ */
+
+        /* 1. Hormozi */
+        .layout-hormozi .badge-wrap { position:absolute; left:50%; transform:translateX(-50%); }
+        .layout-hormozi .stat-box { position:absolute; left:50%; transform:translateX(-50%); font-size:56px; font-weight:900; color:#BEFF01; text-shadow:0 4px 18px rgba(0,0,0,0.9); }
+        .layout-hormozi .hero-row { position:absolute; left:50%; transform:translateX(-50%); width:320px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+        .layout-hormozi .word-solid { background:#BEFF01; color:#000; font-weight:900; font-size:26px; padding:4px 10px; border-radius:4px; transform:rotate(-2deg); }
+        .layout-hormozi .word-plain { color:#FFF; font-weight:900; font-size:25px; }
+        .layout-hormozi .subtext { position:absolute; left:50%; transform:translateX(-50%); width:300px; text-align:center; font-size:13.5px; font-weight:600; color:#d0d7de; }
+
+        /* 2. Cyber HUD */
+        .layout-cyber .hud-container { position:absolute; left:20px; right:20px; top:120px; border:1px solid rgba(0,240,255,0.35); background:rgba(0,15,25,0.75); backdrop-filter:blur(10px); padding:20px 16px; border-radius:8px; box-shadow:0 0 30px rgba(0,240,255,0.15); }
+        .layout-cyber .hud-corner { position:absolute; width:10px; height:10px; }
+        .layout-cyber .hud-tl { top:-2px; left:-2px; border-top:3px solid #00F0FF; border-left:3px solid #00F0FF; }
+        .layout-cyber .hud-tr { top:-2px; right:-2px; border-top:3px solid #00F0FF; border-right:3px solid #00F0FF; }
+        .layout-cyber .hud-bl { bottom:-2px; left:-2px; border-bottom:3px solid #00F0FF; border-left:3px solid #00F0FF; }
+        .layout-cyber .hud-br { bottom:-2px; right:-2px; border-bottom:3px solid #00F0FF; border-right:3px solid #00F0FF; }
+        .layout-cyber .hud-header { font-size:10px; color:#00F0FF; letter-spacing:2px; font-weight:700; margin-bottom:12px; display:flex; justify-content:space-between; border-bottom:1px dashed rgba(0,240,255,0.3); padding-bottom:6px; }
+        .layout-cyber .hero-text { font-size:26px; font-weight:900; color:#FFF; line-height:1.25; text-transform:uppercase; }
+        .layout-cyber .neon-word { color:#00F0FF; text-shadow:0 0 16px #00F0FF; }
+        .layout-cyber .subtext { margin-top:14px; font-size:12.5px; color:#7ee787; font-family:monospace; line-height:1.4; }
+
+        /* 3. Kinetic Tape */
+        .layout-marker .tape-row-1 { position:absolute; left:10px; right:10px; background:#FFD700; color:#000; font-size:24px; font-weight:900; text-transform:uppercase; padding:8px 16px; transform:rotate(-2.5deg); box-shadow:0 6px 20px rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; }
+        .layout-marker .tape-row-2 { position:absolute; left:20px; right:20px; background:#FFF; color:#000; font-size:22px; font-weight:900; text-transform:uppercase; padding:6px 14px; transform:rotate(2deg); box-shadow:0 6px 20px rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; }
+        .layout-marker .tape-sub { position:absolute; left:50%; transform:translateX(-50%); width:280px; text-align:center; font-size:13px; font-weight:700; color:#FFF; background:rgba(0,0,0,0.7); padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.2); }
+
+        /* 4. Hazard */
+        .layout-hazard .warning-frame { position:absolute; left:16px; right:16px; top:110px; border:2px solid #FF3B30; background:#120303; border-radius:8px; overflow:hidden; box-shadow:0 0 35px rgba(255,59,48,0.35); }
+        .layout-hazard .stripes-bar { height:12px; background:repeating-linear-gradient(45deg,#FF3B30,#FF3B30 12px,#000 12px,#000 24px); }
+        .layout-hazard .hazard-body { padding:18px 16px; text-align:center; }
+        .layout-hazard .alert-tag { display:inline-flex; align-items:center; gap:6px; background:#FF3B30; color:#FFF; font-weight:900; font-size:11px; padding:4px 12px; border-radius:4px; letter-spacing:1px; margin-bottom:12px; }
+        .layout-hazard .hero-title { font-size:27px; font-weight:900; color:#FFF; line-height:1.2; text-transform:uppercase; margin-bottom:12px; }
+        .layout-hazard .subtext { font-size:13px; color:#ffb4ab; line-height:1.45; font-weight:600; }
+
+        /* 5. Editorial */
+        .layout-editorial { padding:130px 28px 0 36px; }
+        .layout-editorial .ruler-line { position:absolute; left:24px; top:130px; height:200px; width:2px; background:linear-gradient(180deg,#E5C07B,rgba(229,192,123,0.1)); box-shadow:0 0 10px rgba(229,192,123,0.5); }
+        .layout-editorial .category-meta { font-size:11px; color:#E5C07B; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+        .layout-editorial .headline { font-size:28px; font-weight:800; line-height:1.25; background:linear-gradient(135deg,#FFF9E6,#E5C07B 50%,#B38634); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
+        .layout-editorial .lead-text { font-size:13.5px; line-height:1.55; color:#c9d1d9; font-weight:400; }
+
+        /* 6. Stat Split */
+        .layout-sticker .split-grid { position:absolute; left:20px; right:20px; top:135px; display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:center; }
+        .layout-sticker .giant-col { display:flex; flex-direction:column; align-items:center; background:#BEFF01; color:#000; border-radius:12px; padding:12px 6px; box-shadow:4px 4px 0 #FFF,6px 6px 0 #000; transform:rotate(-3deg); }
+        .layout-sticker .giant-stat { font-size:42px; font-weight:900; line-height:1; letter-spacing:-2px; }
+        .layout-sticker .giant-sub { font-size:9px; font-weight:900; letter-spacing:1px; text-transform:uppercase; }
+        .layout-sticker .text-col { display:flex; flex-direction:column; gap:8px; }
+        .layout-sticker .pop-sticker { background:#FF2D55; color:#FFF; font-weight:900; font-size:20px; text-transform:uppercase; padding:5px 10px; border-radius:6px; border:2px solid #FFF; box-shadow:3px 3px 0 #000; display:inline-block; width:fit-content; }
+        .layout-sticker .pop-sub { background:#000; color:#FFF; font-size:12.5px; font-weight:600; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.3); line-height:1.35; }
+
+        /* ═══════════════════════════════════════════════════════════
+           3 PHƯƠNG ÁN MỚI (A, B, C)
+           ═══════════════════════════════════════════════════════════ */
+
+        /* ── PHƯƠNG ÁN A: GRAVITY PULL (Rule of Thirds — Golden Zone) ── */
+        .layout-gravity .gravity-group {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 330px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            /* JS sẽ gán top động dựa trên trọng tâm G */
+        }
+        .layout-gravity .grav-kicker {
+            font-size: 10px; font-weight: 800; color: #BEFF01; letter-spacing: 2.5px;
+            text-transform: uppercase; margin-bottom: 10px;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .layout-gravity .grav-word {
+            display: block; text-align: center; font-weight: 900; text-transform: uppercase;
+            line-height: 1.1; transition: font-size 0.2s;
+        }
+        .layout-gravity .grav-word.accent { color: #BEFF01; }
+        .layout-gravity .grav-word.white  { color: #FFFFFF; text-shadow: 0 2px 12px rgba(0,0,0,0.9); }
+        .layout-gravity .grav-divider {
+            width: 40px; height: 2px; background: rgba(190,255,1,0.6);
+            border-radius: 4px; margin: 12px auto;
+            box-shadow: 0 0 8px rgba(190,255,1,0.5);
+        }
+        .layout-gravity .grav-sub {
+            text-align: center; font-size: 12.5px; color: #8b949e;
+            line-height: 1.45; font-weight: 600; padding: 0 12px;
+        }
+
+        /* ── PHƯƠNG ÁN B: CINEMATIC LOWER THIRD (Netflix/Documentary Style) ── */
+        .layout-cinema .cinema-bg-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                transparent 50%,
+                rgba(0,0,0,0.55) 65%,
+                rgba(0,0,0,0.88) 80%,
+                rgba(0,0,0,0.96) 100%
+            );
+        }
+        .layout-cinema .cinema-block {
+            position: absolute;
+            left: 0; right: 0; bottom: 100px;
+            padding: 0 24px;
+        }
+        .layout-cinema .cinema-kicker {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+        }
+        .layout-cinema .cinema-kicker-line {
+            flex: 0 0 28px; height: 2px; background: #BEFF01;
+            box-shadow: 0 0 6px rgba(190,255,1,0.7);
+        }
+        .layout-cinema .cinema-kicker-text {
+            font-size: 10px; color: #BEFF01; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .layout-cinema .cinema-headline {
+            font-size: 30px; font-weight: 900; color: #FFFFFF; line-height: 1.15;
+            text-transform: uppercase; margin-bottom: 10px;
+        }
+        .layout-cinema .cinema-headline .hl {
+            color: #BEFF01;
+        }
+        .layout-cinema .cinema-sub {
+            font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; line-height: 1.4;
+            border-left: 2px solid rgba(190,255,1,0.5); padding-left: 10px;
+        }
+
+        /* ── PHƯƠNG ÁN C: KINETIC WORD WEIGHT (Swiss Poster — Log-gradient Scale) ── */
+        .layout-kinetic .kinetic-stage {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 330px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+        .layout-kinetic .kinetic-header {
+            width: 100%; display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 8px; padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .layout-kinetic .kinetic-tag {
+            font-size: 9.5px; font-weight: 900; color: #BEFF01; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .layout-kinetic .kinetic-num {
+            font-size: 9.5px; color: rgba(255,255,255,0.4); font-family: monospace;
+        }
+        .layout-kinetic .k-word {
+            display: block; font-weight: 900; text-transform: uppercase;
+            line-height: 1.0; letter-spacing: -0.5px;
+            /* Font-size set inline by JS per-word */
+        }
+        .layout-kinetic .k-word.w-accent {
+            background: #BEFF01; color: #000;
+            padding: 0 6px; border-radius: 3px; display: inline-block;
+        }
+        .layout-kinetic .k-word.w-outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.6);
+        }
+        .layout-kinetic .k-word.w-ghost {
+            color: rgba(255,255,255,0.25);
+        }
+        .layout-kinetic .kinetic-sub {
+            margin-top: 10px; font-size: 12px; color: #8b949e; line-height: 1.4; font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Procedural Design Studio v2 — 9 Layouts
+        </h1>
+
+        <div class="control-group">
+            <div class="control-label">Mẫu Câu Hook</div>
+            <select id="quickPreset" onchange="applyPreset(this.value)">
+                <option value="0">3 BÍ MẬT giúp bạn X2 DOANH THU ngay lập tức!</option>
+                <option value="1">DỪNG LÀM ĐIỀU NÀY! Sai lầm chết người mất trắng 100 triệu.</option>
+                <option value="2">BẠN CÓ BIẾT? 90% người làm video thất bại vì điều này...</option>
+                <option value="3">CÔNG THỨC TOP 1% mà các triệu phú không muốn bạn biết!</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Raw Text Hook (Live Preview)</div>
+            <textarea id="rawText" placeholder="Nhập câu hook bất kỳ..." oninput="generateProceduralDesign()"></textarea>
+        </div>
+
+        <hr class="section-divider">
+        <div class="section-title">6 Bố Cục Hình Học Cũ</div>
+
+        <div class="style-pills">
+            <button class="style-pill-btn active" onclick="setTheme('hormozi', this)">
+                <strong>Hormozi Box</strong>
+                <span class="pill-tag">Trọng tâm giữa</span>
+            </button>
+            <button class="style-pill-btn" onclick="setTheme('cyber', this)">
+                <strong>Cyber HUD</strong>
+                <span class="pill-tag">Khung 4 góc</span>
+            </button>
+            <button class="style-pill-btn" onclick="setTheme('marker', this)">
+                <strong>Kinetic Tape</strong>
+                <span class="pill-tag">Dải băng so le</span>
+            </button>
+            <button class="style-pill-btn" onclick="setTheme('hazard', this)">
+                <strong>Hazard Alert</strong>
+                <span class="pill-tag">Sọc báo động</span>
+            </button>
+            <button class="style-pill-btn" onclick="setTheme('editorial', this)">
+                <strong>Editorial</strong>
+                <span class="pill-tag">Lề trái Vogue</span>
+            </button>
+            <button class="style-pill-btn" onclick="setTheme('sticker', this)">
+                <strong>Stat Split</strong>
+                <span class="pill-tag">Chia 2 cột</span>
+            </button>
+        </div>
+
+        <hr class="section-divider">
+        <div class="section-title">3 Phương Án Thuật Toán Mới</div>
+
+        <div class="style-pills">
+            <button class="style-pill-btn new-algo" onclick="setTheme('gravity', this)">
+                <span class="pill-badge">A — MỚI</span>
+                <strong>Gravity Pull</strong>
+                <span class="pill-tag">Rule of Thirds G</span>
+            </button>
+            <button class="style-pill-btn new-algo" onclick="setTheme('cinema', this)">
+                <span class="pill-badge">B — MỚI</span>
+                <strong>Cinematic L3rd</strong>
+                <span class="pill-tag">Netflix Lower Third</span>
+            </button>
+            <button class="style-pill-btn new-algo" onclick="setTheme('kinetic', this)">
+                <span class="pill-badge">C — MỚI</span>
+                <strong>Word Weight</strong>
+                <span class="pill-tag">Log-gradient Scale</span>
+            </button>
+        </div>
+
+        <button id="btnGenerate" class="btn-generate" onclick="handleGenerateClick()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+            <span id="btnText">Tạo Thiết Kế Y=f(X)</span>
+        </button>
+
+        <div class="control-group">
+            <div class="control-label">Debug — Toán Học Phân Bổ</div>
+            <div class="math-readout" id="mathLog">Đang chờ lệnh tính toán...</div>
+        </div>
+    </div>
+
+    <div class="preview-wrapper">
+        <div class="canvas-frame">
+            <div class="canvas-ambient-glow" id="ambientGlow"></div>
+            <div class="safe-zone-overlay"></div>
+            <div class="canvas-content" id="canvasContent"></div>
+        </div>
+        <span style="font-size:11px;color:var(--text-sub)">Khung 9:16 (360×640) — Scale 1:3 từ 1080×1920 Remotion</span>
+    </div>
+
+    <script>
+        const PRESETS = [
+            "3 BÍ MẬT giúp bạn X2 DOANH THU ngay lập tức!",
+            "DỪNG LÀM ĐIỀU NÀY! Sai lầm chết người mất trắng 100 triệu.",
+            "BẠN CÓ BIẾT? 90% người làm video thất bại vì điều này...",
+            "CÔNG THỨC TOP 1% mà các triệu phú không muốn bạn biết!"
+        ];
+        let currentTheme = 'hormozi';
+
+        function applyPreset(idx) {
+            document.getElementById('rawText').value = PRESETS[idx];
+            generateProceduralDesign();
+        }
+        function handleGenerateClick() {
+            const btn = document.getElementById('btnGenerate');
+            const btnText = document.getElementById('btnText');
+            if (btnText) btnText.textContent = "✓ Đã tính toán Y=f(X)";
+            if (btn) btn.style.transform = "scale(0.97)";
+            generateProceduralDesign();
+            setTimeout(() => {
+                if (btnText) btnText.textContent = "Tạo Thiết Kế Y=f(X)";
+                if (btn) btn.style.transform = "scale(1)";
+            }, 400);
+        }
+        function setTheme(theme, btn) {
+            currentTheme = theme;
+            document.querySelectorAll('.style-pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generateProceduralDesign();
+        }
+
+        const ICONS = {
+            bolt: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+            alert: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+            gem: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>`,
+            eye: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`
+        };
+
+        function parseHookSemantics(rawText) {
+            let text = rawText.trim();
+            let parts = text.split(/([!?,.])/).filter(Boolean);
+            let sentences = [];
+            for (let i = 0; i < parts.length; i += 2) {
+                let s = parts[i] + (parts[i+1] || '');
+                if (s.trim()) sentences.push(s.trim());
+            }
+            if (sentences.length === 0) sentences = [text];
+            let firstSentence = sentences[0];
+            let restSentences = sentences.slice(1).join(' ');
+            let statMatch = text.match(/(\d+[xX%kKmMbB]?|\bX\d+\b)/);
+            let bigStat = statMatch ? statMatch[0] : '3';
+            let words = firstSentence.replace(/[!?,.]/g, '').split(/\s+/).filter(Boolean);
+            let heroTokens = words.map((w, idx) => ({
+                word: w,
+                isKeyword: (w === w.toUpperCase() && w.length > 1) || idx < 2,
+                charCount: w.length,
+                position: idx
+            }));
+            return { firstSentence, bigStat, heroTokens, subtext: restSentences || "Áp dụng ngay bí quyết này để bứt phá kết quả!" };
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           PHƯƠNG ÁN A: GRAVITY PULL
+           Công thức: G = Σ(w_i × y_i) / Σ(w_i)
+           Điểm vàng 9:16 = 38% từ trên = 243px trên 640px
+           Thuật toán tính toán chiều cao tổng nhóm trước, rồi
+           neo nhóm đó vào điểm vàng bằng: top = G - totalH/2
+           ══════════════════════════════════════════════════════════ */
+        function renderGravityPull(canvas, data, logLines) {
+            const CANVAS_H     = 640;
+            const GOLDEN_Y     = Math.round(CANVAS_H * 0.38);  // = 243px (Rule of Thirds)
+            const FONT_BASE    = 38;  // px — cỡ chữ base (scaled 1:3)
+            const FONT_ACCENT  = 52;  // px — accent word
+            const LINE_H_RATIO = 1.15;
+
+            // Tính ước lượng chiều cao tổng nhóm
+            const kickerH = 22;
+            const dividerH = 26;
+            const subH = 36;
+
+            // Ước lượng block chữ chính (mỗi từ 1 dòng, lấy chiều cao lớn nhất)
+            let heroH = 0;
+            data.heroTokens.forEach(t => {
+                const fs = t.isKeyword ? FONT_ACCENT : FONT_BASE;
+                heroH += Math.ceil(fs * LINE_H_RATIO) + 2;
+            });
+
+            const totalGroupH = kickerH + heroH + dividerH + subH;
+            const groupTopY   = Math.max(60, GOLDEN_Y - totalGroupH / 2);
+
+            logLines.push(`[A — Gravity Pull]`);
+            logLines.push(`• Điểm vàng G = ${GOLDEN_Y}px (38% × ${CANVAS_H}px)`);
+            logLines.push(`• Chiều cao nhóm = ${Math.round(totalGroupH)}px`);
+            logLines.push(`• top neo = G − H/2 = ${Math.round(groupTopY)}px`);
+            logLines.push(`• Nhóm trải từ ${Math.round(groupTopY)} → ${Math.round(groupTopY + totalGroupH)}px`);
+
+            // Render group container
+            const group = document.createElement('div');
+            group.className = 'gravity-group';
+            group.style.top = `${Math.round(groupTopY)}px`;
+
+            // Kicker
+            const kicker = document.createElement('div');
+            kicker.className = 'grav-kicker';
+            kicker.innerHTML = `${ICONS.eye} THUẬT TOÁN RULE OF THIRDS`;
+            group.appendChild(kicker);
+
+            // Từng từ trên 1 dòng, font scale
+            data.heroTokens.forEach(t => {
+                const span = document.createElement('span');
+                span.className = `grav-word ${t.isKeyword ? 'accent' : 'white'}`;
+                span.style.fontSize = `${t.isKeyword ? FONT_ACCENT : FONT_BASE}px`;
+                span.textContent = t.word;
+                group.appendChild(span);
+            });
+
+            // Divider
+            const div = document.createElement('div');
+            div.className = 'grav-divider';
+            group.appendChild(div);
+
+            // Sub
+            const sub = document.createElement('p');
+            sub.className = 'grav-sub';
+            sub.textContent = data.subtext;
+            group.appendChild(sub);
+
+            canvas.appendChild(group);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           PHƯƠNG ÁN B: CINEMATIC LOWER THIRD
+           Nội dung neo xuống vùng đáy 60–85% (384–544px).
+           Overlay gradient đen từ 50% → 100% phủ nền.
+           Kicker có dấu gạch ngang neon chuẩn Netflix lower-third.
+           ══════════════════════════════════════════════════════════ */
+        function renderCinematicLowerThird(canvas, data, logLines) {
+            const CANVAS_H = 640;
+            const LOWER_START = Math.round(CANVAS_H * 0.62); // 397px
+            const LOWER_END   = Math.round(CANVAS_H * 0.87); // 557px
+
+            logLines.push(`[B — Cinematic Lower Third]`);
+            logLines.push(`• Vùng nội dung: Y ${LOWER_START}px → ${LOWER_END}px`);
+            logLines.push(`• 38% trên = Video background zone`);
+            logLines.push(`• Gradient đen bắt đầu từ Y = ${Math.round(CANVAS_H * 0.50)}px`);
+
+            // Gradient overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'cinema-bg-overlay';
+            canvas.appendChild(overlay);
+
+            // Content block
+            const block = document.createElement('div');
+            block.className = 'cinema-block';
+
+            // Tách từ keyword và non-keyword để tô màu
+            let headlineHtml = data.heroTokens.map(t =>
+                t.isKeyword
+                    ? `<span class="hl">${t.word}</span>`
+                    : t.word
+            ).join(' ');
+
+            block.innerHTML = `
+                <div class="cinema-kicker">
+                    <div class="cinema-kicker-line"></div>
+                    <span class="cinema-kicker-text">Bí quyết quan trọng</span>
+                </div>
+                <div class="cinema-headline">${headlineHtml}</div>
+                <div class="cinema-sub">${data.subtext}</div>
+            `;
+            canvas.appendChild(block);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           PHƯƠNG ÁN C: KINETIC WORD WEIGHT
+           Công thức log-weight gradient:
+             w_i = log2(charCount_i + 1) × positionBonus_i
+             positionBonus = 1 + 0.4 × (isKeyword ? 1 : 0)
+             f_i = fMin + (fMax − fMin) × (w_i / wMax)
+           Mỗi từ có cỡ chữ KHÁC NHAU liên tục, tạo sóng typography.
+           Từ đầu tiên lớn nhất, từ cuối nhỏ nhất — Swiss Poster style.
+           ══════════════════════════════════════════════════════════ */
+        function renderKineticWordWeight(canvas, data, logLines) {
+            const F_MIN = 18;
+            const F_MAX = 52;
+            const CANVAS_H = 640;
+            const START_Y  = 110;
+
+            // Tính weight cho mỗi từ
+            const weights = data.heroTokens.map(t => {
+                const posBonus  = 1 + 0.4 * (t.isKeyword ? 1 : 0);
+                return Math.log2(t.charCount + 1) * posBonus;
+            });
+            const wMax = Math.max(...weights, 0.1);
+            const fontSizes = weights.map(w => Math.round(F_MIN + (F_MAX - F_MIN) * (w / wMax)));
+
+            // Tổng chiều cao để neo
+            const totalH = fontSizes.reduce((s, f) => s + Math.ceil(f * 1.1) + 3, 0) + 60;
+            const topY   = Math.max(START_Y, (CANVAS_H / 2) - totalH / 2);
+
+            logLines.push(`[C — Kinetic Word Weight]`);
+            logLines.push(`• fMin=${F_MIN}px, fMax=${F_MAX}px`);
+            logLines.push(`• Trọng lượng từ: [${weights.map(w => w.toFixed(1)).join(', ')}]`);
+            logLines.push(`• Font sizes: [${fontSizes.join(', ')}]px`);
+            logLines.push(`• Stage top Y = ${Math.round(topY)}px`);
+
+            const stage = document.createElement('div');
+            stage.className = 'kinetic-stage';
+            stage.style.top = `${Math.round(topY)}px`;
+
+            // Header
+            const header = document.createElement('div');
+            header.className = 'kinetic-header';
+            header.innerHTML = `<span class="kinetic-tag">WEIGHT TYPOGRAPHY</span><span class="kinetic-num">f(w)=log</span>`;
+            stage.appendChild(header);
+
+            // Từng từ với font-size riêng
+            data.heroTokens.forEach((t, idx) => {
+                const fs = fontSizes[idx];
+                const span = document.createElement('span');
+
+                // 3 kiểu style xoay vòng: accent solid / outline / ghost
+                const styleClass = t.isKeyword
+                    ? 'k-word w-accent'
+                    : (idx % 3 === 1 ? 'k-word w-outline' : 'k-word w-ghost');
+
+                span.className = styleClass;
+                span.style.fontSize = `${fs}px`;
+                span.style.lineHeight = '1.05';
+                span.textContent = t.word;
+                stage.appendChild(span);
+            });
+
+            // Sub
+            const sub = document.createElement('p');
+            sub.className = 'kinetic-sub';
+            sub.textContent = data.subtext;
+            stage.appendChild(sub);
+
+            canvas.appendChild(stage);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           MAIN RENDERER — Router phân phối tới 9 layouts
+           ══════════════════════════════════════════════════════════ */
+        function generateProceduralDesign() {
+            const rawText = document.getElementById('rawText').value || PRESETS[0];
+            const canvas  = document.getElementById('canvasContent');
+            const mathLog = document.getElementById('mathLog');
+            canvas.innerHTML = '';
+            canvas.className = `canvas-content layout-${currentTheme}`;
+
+            const data     = parseHookSemantics(rawText);
+            const glowEl   = document.getElementById('ambientGlow');
+            let   logLines = [];
+
+            // ── 6 Layout cũ ──────────────────────────────────────────
+            if (currentTheme === 'hormozi') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(190,255,1,0.15) 0%, transparent 70%)';
+                let y = 130;
+                const b = document.createElement('div'); b.className = 'badge-wrap'; b.style.top = `${y}px`;
+                b.innerHTML = `<div style="background:rgba(190,255,1,0.15);border:1px solid rgba(190,255,1,0.4);color:#BEFF01;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;gap:6px;">${ICONS.bolt} BÍ MẬT TOP 1%</div>`;
+                canvas.appendChild(b); y += 48;
+                const s = document.createElement('div'); s.className = 'stat-box'; s.style.top = `${y}px`; s.textContent = data.bigStat; canvas.appendChild(s); y += 70;
+                const h = document.createElement('div'); h.className = 'hero-row'; h.style.top = `${y}px`;
+                h.innerHTML = data.heroTokens.map(t => t.isKeyword ? `<span class="word-solid">${t.word}</span>` : `<span class="word-plain">${t.word}</span>`).join(' ');
+                canvas.appendChild(h); y += 75;
+                const sub = document.createElement('div'); sub.className = 'subtext'; sub.style.top = `${y}px`; sub.textContent = data.subtext; canvas.appendChild(sub);
+                logLines = ['[Hormozi Center Stack]', `• Waterfall Y: 130 → ${y+40}px`, '• Từ keyword = Solid Box #BEFF01'];
+
+            } else if (currentTheme === 'cyber') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(0,240,255,0.18) 0%, transparent 70%)';
+                const hud = document.createElement('div'); hud.className = 'hud-container';
+                hud.innerHTML = `<div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><div class="hud-header"><span>[ SYS.HOOK // DETECT ]</span><span>LIVE 99.8%</span></div><div class="hero-text">${data.heroTokens.map(t => t.isKeyword ? `<span class="neon-word">${t.word}</span>` : t.word).join(' ')}</div><div class="subtext">&gt; ${data.subtext}</div>`;
+                canvas.appendChild(hud);
+                logLines = ['[Cyber HUD]', '• Box: X:20, Y:120, W:320px', '• 4 ngàm góc chữ L phát sáng Cyan'];
+
+            } else if (currentTheme === 'marker') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%)';
+                let y = 140;
+                const t1 = document.createElement('div'); t1.className = 'tape-row-1'; t1.style.top = `${y}px`;
+                t1.textContent = data.heroTokens.slice(0, 3).map(t => t.word).join(' '); canvas.appendChild(t1); y += 56;
+                const t2 = document.createElement('div'); t2.className = 'tape-row-2'; t2.style.top = `${y}px`;
+                t2.textContent = data.heroTokens.slice(3).map(t => t.word).join(' ') || data.firstSentence; canvas.appendChild(t2); y += 70;
+                const sub = document.createElement('div'); sub.className = 'tape-sub'; sub.style.top = `${y}px`; sub.textContent = data.subtext; canvas.appendChild(sub);
+                logLines = ['[Kinetic Streetwear Tape]', '• Tape 1: −2.5°, Tape 2: +2°', '• Phủ ngang full-width phong cách poster'];
+
+            } else if (currentTheme === 'hazard') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(255,59,48,0.25) 0%, transparent 70%)';
+                const hf = document.createElement('div'); hf.className = 'warning-frame';
+                hf.innerHTML = `<div class="stripes-bar"></div><div class="hazard-body"><div class="alert-tag">${ICONS.alert} CẢNH BÁO NGUY HIỂM</div><div class="hero-title">${data.firstSentence}</div><div class="subtext">${data.subtext}</div></div><div class="stripes-bar"></div>`;
+                canvas.appendChild(hf);
+                logLines = ['[Industrial Hazard Box]', '• Sọc báo động 45° đỏ/đen', '• Container đỏ viền glowing'];
+
+            } else if (currentTheme === 'editorial') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(229,192,123,0.15) 0%, transparent 70%)';
+                const ed = document.createElement('div'); ed.className = 'layout-editorial';
+                ed.innerHTML = `<div class="ruler-line"></div><div class="category-meta">${ICONS.gem} CHIẾN LƯỢC ĐẶC QUYỀN</div><h2 class="headline">${data.firstSentence}</h2><p class="lead-text">${data.subtext}</p>`;
+                canvas.appendChild(ed);
+                logLines = ['[Luxury Editorial]', '• Căn lề trái 100%', '• Thước vàng chạy dọc lề trái'];
+
+            } else if (currentTheme === 'sticker') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(255,45,85,0.2) 0%, transparent 70%)';
+                const sp = document.createElement('div'); sp.className = 'split-grid';
+                sp.innerHTML = `<div class="giant-col"><div class="giant-stat">${data.bigStat}</div><div class="giant-sub">CHIÊU THỨC</div></div><div class="text-col"><div class="pop-sticker">${data.heroTokens[0]?.word||'SIÊU'}</div><div class="pop-sticker" style="background:#000;border-color:#BEFF01;color:#BEFF01;">${data.heroTokens.slice(1,3).map(t=>t.word).join(' ')||'BÍ MẬT'}</div><div class="pop-sub">${data.subtext}</div></div>`;
+                canvas.appendChild(sp);
+                logLines = ['[Asymmetric Stat Split]', '• 2 cột: 88px stat | auto text', '• Giant số xoay −3°, Shadow 3D'];
+
+            // ── 3 Layout mới A/B/C ────────────────────────────────────
+            } else if (currentTheme === 'gravity') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(190,255,1,0.12) 0%, transparent 70%)';
+                renderGravityPull(canvas, data, logLines);
+
+            } else if (currentTheme === 'cinema') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(190,255,1,0.08) 0%, transparent 70%)';
+                renderCinematicLowerThird(canvas, data, logLines);
+
+            } else if (currentTheme === 'kinetic') {
+                glowEl.style.background = 'radial-gradient(circle, rgba(190,255,1,0.1) 0%, transparent 70%)';
+                renderKineticWordWeight(canvas, data, logLines);
+            }
+
+            logLines.push(`✅ 0 va chạm — Render an toàn`);
+            mathLog.innerHTML = logLines.join('<br>');
+        }
+
+        window.onload = () => applyPreset(0);
+    </script>
+</body>
+</html>

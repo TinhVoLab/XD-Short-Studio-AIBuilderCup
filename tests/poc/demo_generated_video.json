@@ -1,0 +1,345 @@
+[
+  {
+    "id": "scene-demo-1790915639962-1",
+    "name": "Cảnh 1: Nghịch lý chiếc máy bay 400 tấn",
+    "description": "[HOOK] quote-box",
+    "temporalRole": "hook",
+    "duration": 8.2,
+    "bgColor": "#080a0f",
+    "hudHeader": "-- KHOA HỌC ĐỜI SỐNG --",
+    "hudFooterLeft": "XD-SHORT",
+    "hudFooterRight": "01/04",
+    "voiceoverText": "Một khối kim loại nặng 400 tấn lơ lửng trên bầu trời? Không phải ma thuật, đó là định luật Bernoulli.",
+    "soundEffects": [
+      {
+        "type": "boom",
+        "startTime": 0.1,
+        "volume": 0.8
+      },
+      {
+        "type": "whoosh",
+        "startTime": 0.4,
+        "volume": 0.6
+      }
+    ],
+    "elements": [
+      {
+        "id": "el-badge-1",
+        "type": "badge",
+        "left": 180,
+        "top": 48,
+        "width": 170,
+        "height": 32,
+        "content": "⚡ GÓC NHÌN MỚI",
+        "color": "#BEFF01",
+        "bgColor": "rgba(0, 0, 0, 0.65)",
+        "fontSize": 11,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 700,
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      },
+      {
+        "id": "el-widget-1",
+        "type": "quote-box",
+        "left": 180,
+        "top": 192,
+        "width": 320,
+        "height": 180,
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0,
+        "content": "Một khối kim loại 400 tấn lơ lửng trên không trung. Bí mật nằm ở đâu?",
+        "subtitle": "Bí mật Hàng không",
+        "showCardBg": true,
+        "color": "#BEFF01"
+      },
+      {
+        "id": "caption-scene-demo-1790915639962-1",
+        "type": "caption",
+        "left": 180,
+        "top": 520,
+        "width": 320,
+        "height": 70,
+        "content": "Một khối kim loại nặng 400 tấn lơ lửng trên bầu trời? Không phải ma thuật, đó là định luật Bernoulli.",
+        "fontSize": 18,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 800,
+        "color": "#FFFFFF",
+        "accentColor": "#BEFF01",
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      }
+    ]
+  },
+  {
+    "id": "scene-demo-1790915639962-2",
+    "name": "Cảnh 2: Chênh lệch vận tốc khí động quyển",
+    "description": "[NORMAL] math-plot",
+    "temporalRole": "normal",
+    "duration": 7.800000000000001,
+    "bgColor": "#080a0f",
+    "hudHeader": "-- KHOA HỌC ĐỜI SỐNG --",
+    "hudFooterLeft": "XD-SHORT",
+    "hudFooterRight": "02/04",
+    "voiceoverText": "Cánh máy bay cong ở mặt trên, khiến không khí chạy nhanh hơn và giảm áp suất phía trên cánh.",
+    "soundEffects": [
+      {
+        "type": "whoosh",
+        "startTime": 0.1,
+        "volume": 0.8
+      },
+      {
+        "type": "pop",
+        "startTime": 0.4,
+        "volume": 0.6
+      }
+    ],
+    "elements": [
+      {
+        "id": "el-badge-2",
+        "type": "badge",
+        "left": 180,
+        "top": 48,
+        "width": 170,
+        "height": 32,
+        "content": "🔬 NGUYÊN LÝ KHOA HỌC",
+        "color": "#BEFF01",
+        "bgColor": "rgba(0, 0, 0, 0.65)",
+        "fontSize": 11,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 700,
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      },
+      {
+        "id": "el-widget-2",
+        "type": "math-plot",
+        "left": 180,
+        "top": 152,
+        "width": 320,
+        "height": 260,
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0,
+        "mathData": {
+          "expression": "0.4 * sin(x) + 0.1 * x",
+          "latexLabel": "P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2",
+          "mode": "function"
+        },
+        "showCardBg": true,
+        "color": "#BEFF01"
+      },
+      {
+        "id": "caption-scene-demo-1790915639962-2",
+        "type": "caption",
+        "left": 180,
+        "top": 520,
+        "width": 320,
+        "height": 70,
+        "content": "Cánh máy bay cong ở mặt trên, khiến không khí chạy nhanh hơn và giảm áp suất phía trên cánh.",
+        "fontSize": 18,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 800,
+        "color": "#FFFFFF",
+        "accentColor": "#BEFF01",
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      }
+    ]
+  },
+  {
+    "id": "scene-demo-1790915639962-3",
+    "name": "Cảnh 3: Cơ chế tạo lực nâng khí động",
+    "description": "[NORMAL] flowchart",
+    "temporalRole": "normal",
+    "duration": 7.800000000000001,
+    "bgColor": "#080a0f",
+    "hudHeader": "-- KHOA HỌC ĐỜI SỐNG --",
+    "hudFooterLeft": "XD-SHORT",
+    "hudFooterRight": "03/04",
+    "voiceoverText": "Luồng khí ép vào mặt dưới, tạo ra lực nâng khổng lồ đẩy chiếc máy bay vút thẳng lên mây.",
+    "soundEffects": [
+      {
+        "type": "marker",
+        "startTime": 0.1,
+        "volume": 0.8
+      },
+      {
+        "type": "kaching",
+        "startTime": 0.4,
+        "volume": 0.6
+      }
+    ],
+    "elements": [
+      {
+        "id": "el-badge-3",
+        "type": "badge",
+        "left": 180,
+        "top": 48,
+        "width": 170,
+        "height": 32,
+        "content": "📊 PHÂN TÍCH QUY TRÌNH",
+        "color": "#BEFF01",
+        "bgColor": "rgba(0, 0, 0, 0.65)",
+        "fontSize": 11,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 700,
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      },
+      {
+        "id": "el-widget-3",
+        "type": "flowchart",
+        "left": 180,
+        "top": 142,
+        "width": 320,
+        "height": 280,
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0,
+        "flowSteps": [
+          {
+            "title": "Khí xẻ đôi ở mũi cánh",
+            "subtitle": "Mặt trên đi xa hơn"
+          },
+          {
+            "title": "Mặt trên: Vận tốc tăng vọt",
+            "subtitle": "Áp suất tụt dốc"
+          },
+          {
+            "title": "Mặt dưới: Áp suất duy trì",
+            "subtitle": "Lực nâng xuất hiện"
+          },
+          {
+            "title": "Lực nâng > Trọng lực",
+            "subtitle": "Máy bay cất cánh"
+          }
+        ],
+        "showCardBg": true,
+        "color": "#BEFF01"
+      },
+      {
+        "id": "caption-scene-demo-1790915639962-3",
+        "type": "caption",
+        "left": 180,
+        "top": 520,
+        "width": 320,
+        "height": 70,
+        "content": "Luồng khí ép vào mặt dưới, tạo ra lực nâng khổng lồ đẩy chiếc máy bay vút thẳng lên mây.",
+        "fontSize": 18,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 800,
+        "color": "#FFFFFF",
+        "accentColor": "#BEFF01",
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      }
+    ]
+  },
+  {
+    "id": "scene-demo-1790915639962-4",
+    "name": "Cảnh 4: Đúc kết bài học khoa học",
+    "description": "[CTA] highlight-box",
+    "temporalRole": "cta",
+    "duration": 7.1000000000000005,
+    "bgColor": "#080a0f",
+    "hudHeader": "-- KHOA HỌC ĐỜI SỐNG --",
+    "hudFooterLeft": "XD-SHORT",
+    "hudFooterRight": "04/04",
+    "voiceoverText": "Hãy follow kênh để giải mã những hiện tượng kỳ thú của thế giới vật lý mỗi ngày.",
+    "soundEffects": [
+      {
+        "type": "pop",
+        "startTime": 0.1,
+        "volume": 0.8
+      },
+      {
+        "type": "chime",
+        "startTime": 0.4,
+        "volume": 0.6
+      }
+    ],
+    "elements": [
+      {
+        "id": "el-badge-4",
+        "type": "badge",
+        "left": 180,
+        "top": 48,
+        "width": 170,
+        "height": 32,
+        "content": "🎯 BÀI HỌC BỎ TÚI",
+        "color": "#BEFF01",
+        "bgColor": "rgba(0, 0, 0, 0.65)",
+        "fontSize": 11,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 700,
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      },
+      {
+        "id": "el-widget-4",
+        "type": "highlight-box",
+        "left": 180,
+        "top": 162,
+        "width": 320,
+        "height": 240,
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0,
+        "items": [
+          "Áp suất tỷ lệ nghịch với vận tốc dòng khí",
+          "Cánh cong là chìa khóa tạo chênh lệch lực",
+          "Follow kênh để khám phá khoa học đời sống"
+        ],
+        "variant": "bullet-list",
+        "showCardBg": true,
+        "color": "#BEFF01"
+      },
+      {
+        "id": "caption-scene-demo-1790915639962-4",
+        "type": "caption",
+        "left": 180,
+        "top": 520,
+        "width": 320,
+        "height": 70,
+        "content": "Hãy follow kênh để giải mã những hiện tượng kỳ thú của thế giới vật lý mỗi ngày.",
+        "fontSize": 18,
+        "fontFamily": "Be Vietnam Pro",
+        "fontWeight": 800,
+        "color": "#FFFFFF",
+        "accentColor": "#BEFF01",
+        "textAlign": "center",
+        "opacity": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "angle": 0
+      }
+    ]
+  }
+]

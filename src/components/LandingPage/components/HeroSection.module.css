@@ -1,0 +1,409 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow {
+  top: -260px;
+}
+
+.head {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px 0;
+  text-align: center;
+}
+
+.kicker {
+  font: 500 12px/1.4 var(--l-mono);
+  letter-spacing: 0.14em;
+  color: var(--l-sub);
+}
+
+.title {
+  margin: 26px auto 0;
+  max-width: 1000px;
+  font: 700 clamp(46px, 7vw, 100px)/0.96 var(--l-display);
+  letter-spacing: -0.045em;
+  color: var(--l-text);
+}
+
+.lead {
+  margin: 28px auto 0;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--l-sub);
+}
+
+/* ---------- Ô nhập ý tưởng ---------- */
+
+.ideaForm {
+  position: relative;
+  margin: 40px auto 0;
+  max-width: 640px;
+  padding: 8px 8px 8px 22px;
+  border-radius: 999px;
+  background: rgba(237, 235, 230, 0.06);
+  border: 1px solid rgba(237, 235, 230, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+}
+
+.ideaForm:focus-within {
+  border-color: rgba(198, 244, 50, 0.5);
+}
+
+.sparkle {
+  flex: none;
+  color: var(--l-accent);
+}
+
+.ideaField {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.ideaField input {
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--l-text);
+  font: 400 16px var(--l-body);
+}
+
+.ghost {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 48px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  font-size: 16px;
+  color: var(--l-mute);
+}
+
+.caret {
+  display: inline-block;
+  flex: none;
+  width: 2px;
+  height: 20px;
+  margin-left: 2px;
+  background: var(--l-accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.ideaSubmit {
+  flex: none;
+  border-radius: 999px;
+}
+
+.note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--l-mute);
+}
+
+/* ---------- Tab chủ đề ---------- */
+
+.tabs {
+  margin-top: 48px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(237, 235, 230, 0.1);
+}
+
+.tab {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  font: 500 14px var(--l-body);
+  color: var(--l-sub);
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab:hover {
+  color: var(--l-text);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--l-accent);
+  outline-offset: 2px;
+}
+
+.tabActive,
+.tabActive:hover {
+  background: var(--l-text);
+  color: var(--l-on-accent);
+}
+
+/* ---------- Dải thẻ video ---------- */
+
+.stage {
+  position: relative;
+  margin-top: 44px;
+  padding: 30px 0 90px;
+  perspective: 1400px;
+}
+
+.tilt {
+  transform: rotateX(14deg);
+  transform-origin: center top;
+}
+
+.track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: slide 48s linear infinite;
+}
+
+.stage:hover .track,
+.stagePaused .track {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
+}
+
+.card {
+  position: relative;
+  width: 210px;
+  flex: none;
+  aspect-ratio: 9 / 16;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
+}
+
+.cardVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardMeta {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font: 500 9px var(--l-mono);
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.quote {
+  margin-top: auto;
+  font: 700 24px/1.06 var(--l-display);
+  letter-spacing: -0.03em;
+}
+
+.quoteRule {
+  margin-top: 16px;
+  height: 3px;
+  width: 40%;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.chartTitle {
+  margin-top: 14px;
+  font: 700 19px/1.1 var(--l-display);
+}
+
+.bars {
+  margin-top: auto;
+  height: 46%;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+.bars span {
+  flex: 1;
+  border-radius: 5px 5px 0 0;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.quizTitle {
+  margin-top: 14px;
+  font: 700 18px/1.15 var(--l-display);
+}
+
+.quizOptions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.quizOption,
+.quizRight {
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quizRight {
+  color: var(--l-on-accent);
+  font-weight: 600;
+}
+
+.word {
+  margin-top: auto;
+  font: italic 600 36px/1 var(--l-serif);
+}
+
+.phonetic {
+  margin-top: 8px;
+  font: 500 11px var(--l-mono);
+  opacity: 0.7;
+}
+
+.meaning {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.push {
+  margin-top: auto;
+}
+
+.voice {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.voice span {
+  width: 2px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.voice em {
+  margin-left: 8px;
+  font: normal 500 9px var(--l-mono);
+  opacity: 0.7;
+}
+
+.fadeSides {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--l-bg) 0%, transparent 12%, transparent 88%, var(--l-bg) 100%);
+}
+
+.fadeBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  pointer-events: none;
+  background: linear-gradient(transparent, var(--l-bg));
+}
+
+/* ---------- Dải thông số ---------- */
+
+.facts {
+  position: relative;
+  max-width: 1200px;
+  margin: -40px auto 0;
+  padding: 0 24px 56px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 40px;
+  font: 500 12px var(--l-mono);
+  letter-spacing: 0.08em;
+  color: var(--l-mute);
+}
+
+.facts li + li::before {
+  content: '·';
+  margin-right: 40px;
+}
+
+@media (max-width: 640px) {
+  .head {
+    padding-top: 56px;
+  }
+  .ideaForm {
+    padding-left: 16px;
+  }
+  .ideaSubmit {
+    padding: 0 16px;
+  }
+  .card {
+    width: 170px;
+  }
+  .facts {
+    gap: 8px 20px;
+  }
+  .facts li + li::before {
+    content: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .caret {
+    animation: none;
+  }
+  .card {
+    transition: none;
+  }
+}

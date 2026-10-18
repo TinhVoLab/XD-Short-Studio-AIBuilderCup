@@ -1,0 +1,93 @@
+.player {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(18, 22, 28, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  min-height: 36px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  z-index: var(--z-sticky, 40);
+  user-select: none;
+  max-width: calc(100% - 20px);
+  white-space: nowrap;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.player.isDragging {
+  cursor: grabbing !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-focus);
+  border-color: var(--accent);
+}
+
+.dragHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: grab;
+  padding: 3px 6px 3px 2px;
+  border-right: 1px solid var(--border);
+  margin-right: 2px;
+  transition: color 0.15s ease;
+}
+
+.dragHandle:hover {
+  color: var(--accent);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding: 0 4px;
+}
+.sep { opacity: 0.4; color: var(--text-muted); }
+
+.speedBtn {
+  font-size: var(--font-xs);
+  font-weight: var(--fw-bold);
+  color: var(--text-sub);
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.speedBtn:hover {
+  background: var(--surface-3);
+  color: var(--accent);
+}
+
+.resetBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-left: 2px;
+}
+.resetBtn:hover {
+  color: var(--accent);
+  background: var(--surface-3);
+}

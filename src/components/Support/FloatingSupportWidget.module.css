@@ -1,0 +1,226 @@
+.container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font-family: var(--font-sans);
+}
+
+.triggerBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--surface-1, #0d1117);
+  border: 1px solid var(--accent, #beff01);
+  color: var(--accent, #beff01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(190, 255, 1, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.triggerBtn:hover {
+  transform: scale(1.06);
+  background: rgba(190, 255, 1, 0.1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(190, 255, 1, 0.4);
+}
+
+.pulseRing {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent, #beff01);
+  animation: pulseAnim 2.2s infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes pulseAnim {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+.card {
+  width: 290px;
+  background: var(--surface-1, #0d1117);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideUpFade 0.2s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  padding-bottom: 10px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: var(--font-md, 13px);
+  font-weight: 700;
+  color: var(--text, #f0f6fc);
+}
+
+.statusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: #3fb950;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3fb950;
+  box-shadow: 0 0 6px #3fb950;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted, #6e7681);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.closeBtn:hover {
+  color: var(--text, #f0f6fc);
+}
+
+.desc {
+  font-size: 11.5px;
+  color: var(--text-sub, #8b949e);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hotlineBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.hotlineVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent, #beff01);
+  letter-spacing: 0.5px;
+}
+
+.copyBtn {
+  background: none;
+  border: none;
+  color: var(--text-sub, #8b949e);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.copyBtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zaloLinkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent, #beff01);
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.zaloLinkBtn:hover {
+  opacity: 0.9;
+}
+
+.callLinkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--surface-2, #161b22);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  color: var(--text, #f0f6fc);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.callLinkBtn:hover {
+  background: var(--surface-3, #21262d);
+}

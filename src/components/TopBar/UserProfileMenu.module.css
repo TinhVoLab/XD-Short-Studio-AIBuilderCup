@@ -1,0 +1,396 @@
+.menuWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.avatarBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-3, #151b28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  outline: none;
+  position: relative;
+}
+
+.avatarBtn:hover,
+.avatarBtnActive {
+  border-color: #BEFF01;
+  box-shadow: 0 0 12px rgba(190, 255, 1, 0.35);
+  transform: scale(1.05);
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #BEFF01;
+  border: 1.5px solid #060D16;
+  box-shadow: 0 0 6px #BEFF01;
+}
+
+.adminMiniBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -3px;
+  background: var(--accent);
+  color: #000;
+  border: 1.5px solid #060D16;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(190, 255, 1, 0.6);
+}
+
+.avatarBtnAdmin {
+  border-color: rgba(190, 255, 1, 0.5);
+}
+.avatarBtnAdmin:hover,
+.avatarBtnAdmin.avatarBtnActive {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(190, 255, 1, 0.4);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 290px;
+  background: rgba(11, 16, 29, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(190, 255, 1, 0.08);
+  z-index: 1000;
+  animation: popoverIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+@keyframes popoverIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 1. Header Profile */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 4px 8px 4px;
+}
+
+.largeAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #182238;
+  border: 1.5px solid rgba(190, 255, 1, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.authorName {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.2px;
+}
+
+.planBadge {
+  font-size: 9.5px;
+  font-weight: 800;
+  background: rgba(190, 255, 1, 0.15);
+  color: #BEFF01;
+  border: 1px solid rgba(190, 255, 1, 0.4);
+  padding: 2px 6px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.authorHandle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: monospace;
+}
+
+/* 2. Quota Section */
+.quotaCard {
+  background: rgba(18, 25, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quotaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quotaLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quotaValue {
+  color: #BEFF01;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.progressBar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #9ACD00 0%, #BEFF01 100%);
+  border-radius: 3px;
+}
+
+.subscriptionExpiry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.subscriptionExpiryExpired {
+  color: var(--danger, #ff4d4f);
+  background: rgba(255, 77, 79, 0.1);
+  border-color: rgba(255, 77, 79, 0.3);
+}
+
+.upgradeBtn {
+  margin-top: 2px;
+  background: linear-gradient(135deg, rgba(190, 255, 1, 0.2) 0%, rgba(0, 212, 255, 0.15) 100%);
+  border: 1px solid rgba(190, 255, 1, 0.35);
+  color: #BEFF01;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.upgradeBtn:hover {
+  background: #BEFF01;
+  color: #060D16;
+  border-color: #BEFF01;
+  box-shadow: 0 0 12px rgba(190, 255, 1, 0.4);
+}
+
+/* 3. Action Menu Items */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFF;
+  padding-left: 12px;
+}
+
+.menuIcon {
+  font-size: 14px;
+  width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dev Role Switcher Box */
+.devSection {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.devHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.devLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.devResetBtn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.devResetBtn:hover {
+  text-decoration: underline;
+}
+
+.devRoleGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.devRoleBtn {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--text-sub);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.devRoleBtn:hover {
+  color: var(--text);
+  border-color: var(--text-sub);
+}
+
+.devRoleBtnActive {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 4. Footer */
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 0 4px;
+}
+
+.logoutBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 85, 85, 0.8);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 85, 85, 0.12);
+  color: #FF5555;
+}
+
+.versionTag {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: monospace;
+}

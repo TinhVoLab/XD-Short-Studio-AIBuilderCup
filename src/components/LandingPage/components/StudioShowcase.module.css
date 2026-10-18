@@ -1,0 +1,493 @@
+/* Dải nền nâng tông cho phần Studio */
+.band {
+  margin-top: 120px;
+  padding: 140px 24px;
+  scroll-margin-top: 80px;
+  background: linear-gradient(var(--l-bg) 0px, var(--l-bg-raise) 140px, var(--l-bg-raise) calc(100% - 140px), var(--l-bg) 100%);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  margin: 16px auto 0;
+  max-width: 760px;
+  font: 700 clamp(34px, 4.6vw, 60px)/1.08 var(--l-display);
+  letter-spacing: -0.035em;
+  color: var(--l-text);
+}
+
+.lead {
+  margin: 20px auto 0;
+  max-width: 580px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--l-sub);
+}
+
+/* ---------- Cửa sổ Studio ---------- */
+
+.window {
+  margin: 56px auto 0;
+  max-width: 1120px;
+  text-align: left;
+  border-radius: 18px;
+  background: #0b0b0d;
+  border: 1px solid var(--l-line-mid);
+  box-shadow: 0 60px 120px -40px rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+}
+
+.topBar {
+  height: 52px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.projectName {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.metaLabel {
+  font: 500 11px var(--l-mono);
+  color: var(--l-mute);
+  white-space: nowrap;
+}
+
+.exportChip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--l-text);
+  color: var(--l-on-accent);
+}
+
+.body {
+  display: flex;
+  min-height: 470px;
+}
+
+.side {
+  flex: none;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sideLeft {
+  width: 230px;
+  gap: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.sideRight {
+  width: 260px;
+  gap: 22px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.panelLabel {
+  margin-bottom: 6px;
+  font: 500 10px var(--l-mono);
+  letter-spacing: 0.1em;
+  color: var(--l-mute);
+}
+
+.stack {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.opt {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font: 500 13px var(--l-body);
+  color: var(--l-sub);
+  transition: background 0.15s, color 0.15s;
+}
+
+.opt:hover {
+  color: var(--l-text);
+}
+
+.opt:focus-visible,
+.play:focus-visible {
+  outline: 2px solid var(--l-accent);
+  outline-offset: 2px;
+}
+
+.optActive,
+.optSelected {
+  background: #1e1e22;
+  color: var(--l-text);
+}
+
+.optSelected {
+  box-shadow: inset 0 0 0 1px var(--l-accent);
+}
+
+.optMeta {
+  font: 500 10px var(--l-mono);
+  color: var(--l-mute);
+}
+
+.sceneName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumb {
+  width: 16px;
+  height: 28px;
+  flex: none;
+  border-radius: 4px;
+  background: #2a2a2f;
+}
+
+.optActive .thumb {
+  background: var(--l-accent);
+}
+
+.capGrid {
+  margin-top: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.capOpt {
+  justify-content: center;
+  padding: 0 4px;
+  background: #1a1a1d;
+}
+
+.capOptActive,
+.capOptActive:hover {
+  background: var(--l-text);
+  color: var(--l-on-accent);
+}
+
+.swatches {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+}
+
+.swatch,
+.swatchActive {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+}
+
+.swatchActive {
+  box-shadow: 0 0 0 2px #0b0b0d, 0 0 0 3px var(--l-text);
+}
+
+/* ---------- Xem trước 9:16 ---------- */
+
+.preview {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #08080a;
+}
+
+.phone {
+  width: 250px;
+  aspect-ratio: 9 / 16;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #151517;
+  border: 1px solid var(--l-line);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+}
+
+.phoneMeta {
+  display: flex;
+  justify-content: space-between;
+  font: 500 10px var(--l-mono);
+  color: var(--l-mute);
+}
+
+.phoneTitle {
+  margin-top: auto;
+  font: 700 28px/1.08 var(--l-display);
+  letter-spacing: -0.03em;
+}
+
+.caption {
+  margin-top: 22px;
+  min-height: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  row-gap: 3px;
+  font: 600 15px/1.4 var(--l-body);
+}
+
+.word {
+  display: inline-block;
+  padding: 0 3px;
+  border-radius: 5px;
+  color: var(--l-faint);
+  transition: all 0.12s;
+}
+
+.wordSpoken {
+  color: var(--l-text);
+}
+
+.wordBounce {
+  background: var(--l-accent);
+  color: var(--l-on-accent);
+  transform: scale(1.06);
+}
+
+.wordColor {
+  color: var(--l-accent);
+}
+
+.wordUnderline {
+  color: var(--l-text);
+  box-shadow: inset 0 -3px 0 var(--l-accent);
+}
+
+.handle {
+  margin-top: 14px;
+  font: 500 10px var(--l-mono);
+  color: var(--l-mute);
+}
+
+/* ---------- Timeline ---------- */
+
+.timeline {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 12px 16px 16px;
+  background: #0e0e10;
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.play {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--l-text);
+  color: var(--l-on-accent);
+}
+
+.timecode {
+  font: 500 12px var(--l-mono);
+}
+
+.timecode span {
+  color: var(--l-mute);
+}
+
+.tracks {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.trackLabels {
+  width: 82px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  font: 500 10px var(--l-mono);
+  color: var(--l-mute);
+}
+
+.trackLabels span {
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+
+.trackLabels span:first-child {
+  height: 18px;
+}
+
+.lanes {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.ruler {
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  font: 500 10px var(--l-mono);
+  color: #5f5e59;
+}
+
+.lane {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.clip {
+  height: 26px;
+  min-width: 0;
+  padding: 0 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font: 500 10px var(--l-mono);
+  background: #26262b;
+  color: var(--l-sub);
+}
+
+.clipActive {
+  background: var(--l-accent);
+  color: var(--l-on-accent);
+}
+
+.wave {
+  gap: 2px;
+}
+
+.wave span {
+  flex: 1;
+  border-radius: 1px;
+  background: #3a3a40;
+}
+
+.wave span.passed {
+  background: var(--l-accent);
+}
+
+.subs span {
+  height: 14px;
+  border-radius: 4px;
+  background: #2e2e33;
+}
+
+.subs span.passed {
+  background: var(--l-text);
+}
+
+.music {
+  flex: 1;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  background: rgba(122, 167, 255, 0.18);
+  border: 1px solid rgba(122, 167, 255, 0.35);
+  font: 500 10px var(--l-mono);
+  color: #b9cdf5;
+}
+
+.playhead {
+  position: absolute;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--l-text);
+  transition: left 0.25s linear;
+}
+
+.playhead::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--l-text);
+}
+
+@media (max-width: 980px) {
+  .side {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .band {
+    margin-top: 72px;
+    padding: 96px 16px;
+  }
+  .project .metaLabel {
+    display: none;
+  }
+  .trackLabels {
+    width: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .playhead {
+    transition: none;
+  }
+}

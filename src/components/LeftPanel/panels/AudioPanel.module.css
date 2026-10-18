@@ -1,0 +1,540 @@
+/* ═══════════════════════════════════════
+   AudioPanel.module.css
+   Component-scoped styles for AudioPanel
+   ═══════════════════════════════════════ */
+
+/* ── Voice Tab Container ── */
+.voiceCard {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-25);
+}
+
+.subTabMb {
+  margin-bottom: var(--space-2);
+}
+
+/* ── Batch Mode ── */
+.batchCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.batchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.batchHeaderLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.batchCount {
+  font-size: 10px;
+  color: #00FF88;
+  font-weight: 700;
+  background: rgba(0, 255, 136, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.fieldLabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fieldCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Progress Card ── */
+.progressCard {
+  background: linear-gradient(180deg, rgba(255, 85, 68, 0.1) 0%, rgba(20, 20, 20, 0.8) 100%);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 85, 68, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progressLabel {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.progressPct {
+  font-size: 10px;
+  color: #BEFF01;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00D4FF 0%, #BEFF01 100%);
+  box-shadow: 0 0 8px #BEFF01;
+  transition: width 0.3s ease;
+}
+
+/* ── Scene Selection Toolbar ── */
+.selectionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.selectionLabel {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.selectionBtnGroup {
+  display: flex;
+  gap: 6px;
+}
+
+/* ── Scene Checklist ── */
+.sceneList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 8px;
+  padding-right: 2px;
+}
+
+.sceneRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.15s;
+}
+
+.sceneRowActive {
+  background: rgba(190, 255, 1, 0.08) !important;
+  border-color: rgba(190, 255, 1, 0.3) !important;
+}
+
+.sceneLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sceneCheckbox {
+  accent-color: #BEFF01;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sceneCheckbox:disabled {
+  cursor: not-allowed;
+}
+
+.sceneName {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.sceneNameActive {
+  color: #BEFF01 !important;
+}
+
+.sceneText {
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sceneTextEmpty {
+  font-style: italic;
+}
+
+.sceneRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+.sceneBadgeOk {
+  font-size: 9.5px;
+  color: #00FF88;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.sceneBadgePending {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.sceneBadgeWarn {
+  font-size: 9.5px;
+  color: #FFB800;
+}
+
+.previewBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+/* ── Single Mode ── */
+.singleCol {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.voiceoverPreview {
+  font-size: 11.5px;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 9px 11px;
+  border-radius: 6px;
+  font-style: italic;
+  max-height: 65px;
+  overflow-y: auto;
+  line-height: 1.45;
+}
+
+/* ── BGM Tab ── */
+.bgmCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bgmActiveCard {
+  background: #181818;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+}
+
+.bgmActiveTitle {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.bgmActiveTitle > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+
+.bgmRemoveBtn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: var(--font-xs);
+  font-weight: var(--fw-semibold);
+  padding: 2px 6px;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+.bgmRemoveBtn:hover {
+  background: rgba(255, 77, 77, 0.12);
+}
+
+.bgmFilename {
+  font-size: var(--font-xs);
+  color: var(--text-sub);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bgmEmpty {
+  font-size: 11px;
+  color: #666;
+}
+
+.volumeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volumeLabel {
+  font-size: 11px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.volumeSlider {
+  flex: 1;
+  accent-color: #BEFF01;
+}
+
+.volumeVal {
+  font-size: 11px;
+  color: #BEFF01;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* ── Upload Card ── */
+.uploadCard {
+  background: linear-gradient(180deg, #14171E 0%, #0C0E12 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.uploadHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.uploadTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #E2E8F0;
+  white-space: nowrap;
+}
+
+.uploadCount {
+  font-size: 10px;
+  color: #BEFF01;
+  background: rgba(190, 255, 1, 0.12);
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.uploadBtn {
+  background: rgba(190, 255, 1, 0.12);
+  border: 1px solid rgba(190, 255, 1, 0.35);
+  color: #BEFF01;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s;
+}
+
+.uploadBtn:hover {
+  background: rgba(190, 255, 1, 0.2);
+}
+
+/* ── Drop Zone ── */
+.dropZoneCustom {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 16px 14px;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+.dropZoneCustom[data-dragging='true'] {
+  border-color: #BEFF01;
+  background-color: rgba(190, 255, 1, 0.05);
+}
+
+.dropZoneIcon {
+  margin-bottom: 4px;
+  color: #BEFF01;
+}
+
+.dropZoneLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.dropZoneHint {
+  font-size: 10.5px;
+  color: #777;
+}
+
+/* ── Audio List ── */
+.audioList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.audioItem {
+  background: #0C0E12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audioItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audioItemName {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.previewPlayBtn {
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.previewPlayBtnDefault {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.previewPlayBtnActive {
+  background: #BEFF01;
+  color: #000;
+}
+
+.audioItemActions {
+  display: flex;
+  gap: 6px;
+}
+
+.btnBgm {
+  flex: 1;
+  background: rgba(190, 255, 1, 0.1);
+  border: 1px solid rgba(190, 255, 1, 0.3);
+  color: #BEFF01;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnBgm:hover {
+  background: rgba(190, 255, 1, 0.18);
+}
+
+.btnTimeline {
+  flex: 1;
+  background: rgba(184, 77, 255, 0.1);
+  border: 1px solid rgba(184, 77, 255, 0.3);
+  color: #b84dff;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnTimeline:hover {
+  background: rgba(184, 77, 255, 0.18);
+}
+
+.selectionActionBtn {
+  font-size: var(--font-xs) !important;
+  padding: 2px var(--space-15) !important;
+}

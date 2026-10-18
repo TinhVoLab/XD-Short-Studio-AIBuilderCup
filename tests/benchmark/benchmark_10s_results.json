@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-11T12:32:06.102Z",
+  "system": {
+    "os": "Darwin 23.5.0 (arm64)",
+    "cpu": "Apple M1 Pro",
+    "cores": 10,
+    "concurrency": 8
+  },
+  "bundleElapsedSec": "2.19",
+  "results": [
+    {
+      "label": "360p (SD Fast)",
+      "resolution": "360x640",
+      "scale": 1,
+      "selectTimeMs": "1314",
+      "renderElapsedSec": "3.87",
+      "renderFps": "77.4",
+      "realTimeFactor": "2.58",
+      "sizeMb": "1.03",
+      "videoTrackDur": "10.00"
+    },
+    {
+      "label": "720p (HD Balanced)",
+      "resolution": "720x1280",
+      "scale": 2,
+      "selectTimeMs": "1107",
+      "renderElapsedSec": "9.88",
+      "renderFps": "30.4",
+      "realTimeFactor": "1.01",
+      "sizeMb": "1.97",
+      "videoTrackDur": "10.00"
+    },
+    {
+      "label": "1080p (Full HD Studio)",
+      "resolution": "1080x1920",
+      "scale": 3,
+      "selectTimeMs": "1116",
+      "renderElapsedSec": "20.62",
+      "renderFps": "14.5",
+      "realTimeFactor": "0.48",
+      "sizeMb": "3.47",
+      "videoTrackDur": "10.00"
+    }
+  ]
+}

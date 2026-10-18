@@ -1,0 +1,76 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2);
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.labelWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-sub);
+  line-height: var(--lh-tight);
+  user-select: none;
+}
+
+.badge {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-weight: var(--fw-normal);
+}
+
+
+.required {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+.description {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  line-height: var(--lh-tight);
+  margin-top: -2px;
+}
+
+.controlWrapper {
+  width: 100%;
+}
+
+.error {
+  font-size: var(--font-xs);
+  color: var(--danger);
+  line-height: var(--lh-tight);
+  margin-top: 2px;
+}
+
+.inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.inline .label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.inline .controlWrapper {
+  flex: 1;
+  min-width: 0;
+}

@@ -1,0 +1,504 @@
+/* ══════════════════════════════════════════
+   ElementsPanel.module.css
+   ══════════════════════════════════════════ */
+
+.tabSwitcher {
+  margin-bottom: 8px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Common Element Card ── */
+.elementCard {
+  padding: 9px 11px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.elementCard:hover {
+  background: rgba(25, 34, 52, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.canvasWrapper {
+  background: rgba(10, 15, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+/* ── 1. Fake Search Variant ── */
+.searchBarBox {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 14px;
+  padding: 5px 10px;
+  gap: 6px;
+  /* border dynamic with itemAccent */
+}
+
+.searchIcon {
+  font-size: 12px;
+}
+
+.searchKeyword {
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFFFFF;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchEnterBadge {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 900;
+  flex-shrink: 0;
+  /* background + color dynamic */
+}
+
+/* ── 2. Push Notification Variant ── */
+.pushNotifBox {
+  display: flex;
+  flex-direction: column;
+  background: rgba(25, 25, 35, 0.85);
+  border-radius: 8px;
+  padding: 6px 8px;
+  gap: 3px;
+  /* border dynamic with itemAccent */
+}
+
+.pushNotifHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pushNotifApp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pushNotifAppIcon {
+  font-size: 10px;
+}
+
+.pushNotifAppName {
+  font-size: 9px;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.pushNotifTime {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pushNotifTitle {
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* color dynamic with itemAccent */
+}
+
+.pushNotifMsg {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 3. Bank Transfer Variant ── */
+.bankBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bankHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.bankSubtitleBox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.bankIcon {
+  font-size: 11px;
+  padding: 1.5px 3px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  /* background gradient dynamic */
+}
+
+.bankSubtitle {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bankBadge {
+  font-size: 8px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  /* color, background, border dynamic */
+}
+
+.bankTitle {
+  font-size: 14.5px;
+  font-weight: 900;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* color, textShadow dynamic */
+}
+
+.bankContent {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 4. Tweet X Variant ── */
+.tweetBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tweetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.tweetUser {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.tweetAvatar {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.5px;
+  flex-shrink: 0;
+  /* background dynamic */
+}
+
+.tweetName {
+  font-size: 10px;
+  font-weight: 800;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.tweetCheck {
+  font-size: 9.5px;
+  flex-shrink: 0;
+  /* color dynamic */
+}
+
+.tweetHandle {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tweetLogo {
+  font-size: 11px;
+  color: #FFFFFF;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.tweetContent {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tweetMetrics {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+}
+
+/* ── 5. Chat Bubble Variant ── */
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chatDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34C759;
+  flex-shrink: 0;
+}
+
+.chatTitle {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.chatSubtitle {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatBubble {
+  color: #FFFFFF;
+  border-radius: 10px 10px 10px 2px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  display: inline-block;
+  max-width: 92%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* background dynamic */
+}
+
+/* ── 6. News Variant ── */
+.newsBox {
+  border-radius: 6px;
+  overflow: hidden;
+  /* border dynamic with accent */
+}
+
+.newsHeader {
+  color: #FFF;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8px;
+  font-weight: 700;
+  /* background dynamic with accent */
+}
+
+.newsBadge {
+  white-space: nowrap;
+}
+
+.newsLiveTag {
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.newsContent {
+  background: rgba(10, 15, 25, 0.95);
+  padding: 4px 7px;
+  color: #FFF;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── TAB 2: FRAME MOCKUP ── */
+.previewBadge {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  /* color, background, border dynamic */
+}
+
+.frameBox {
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 8px;
+  overflow: hidden;
+  /* border dynamic with accent */
+}
+
+.frameHeader {
+  height: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  gap: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dotRed {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FF5F56;
+}
+
+.dotYellow {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFBD2E;
+}
+
+.dotGreen {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #27C93F;
+}
+
+.frameUrl {
+  font-size: 7.5px;
+  color: #A1A1AA;
+  margin-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.frameBody {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* ── TAB 3: DOCUMENT & EVIDENCE ── */
+.docCard {
+  padding: 9px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.docCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(190, 255, 1, 0.35);
+}
+
+.docHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docTitle {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #EEEEEE;
+}
+
+.docBadge {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1.5px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  /* color, background, border dynamic */
+}
+
+.docSubtitle {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,87 @@
+.badgeBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+
+/* ── Sizes ── */
+.sizeXs {
+  font-size: 8px;
+  padding: 1.5px 5px;
+  border-radius: 3.5px;
+}
+
+.sizeSm {
+  font-size: 9.5px;
+  padding: 2.5px 6px;
+  border-radius: 4px;
+}
+
+.sizeMd {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+/* ── Variants ── */
+.variantPrimary {
+  color: var(--accent, #BEFF01);
+  background: rgba(190, 255, 1, 0.12);
+  border: 1px solid rgba(190, 255, 1, 0.35);
+}
+
+.variantCyber {
+  color: #00D4FF;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+}
+
+.variantSuccess {
+  color: #00FF88;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+}
+
+.variantWarning {
+  color: #FFB800;
+  background: rgba(255, 184, 0, 0.12);
+  border: 1px solid rgba(255, 184, 0, 0.35);
+}
+
+.variantDanger {
+  color: #FF3366;
+  background: rgba(255, 51, 102, 0.12);
+  border: 1px solid rgba(255, 51, 102, 0.35);
+}
+
+.variantNeutral {
+  color: var(--text-sub, #999);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.variantSolid {
+  color: #000;
+  background: var(--accent, #BEFF01);
+  border: 1px solid var(--accent, #BEFF01);
+}
+
+/* ── Pill Shape ── */
+.pill {
+  border-radius: 9999px;
+}
+
+/* ── Glow Effect ── */
+.glow {
+  box-shadow: 0 0 8px currentColor;
+}

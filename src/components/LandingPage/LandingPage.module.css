@@ -1,0 +1,96 @@
+/* ==========================================================================
+   LANDING PAGE — XD-Short Studio (thiết kế 10/2026)
+   Token khai báo ở đây; mỗi phần có module CSS riêng trong components/.
+   Màu nhấn (--l-accent) dành cho hành động chính và điểm nhấn; chữ phụ đạt WCAG >= 4.5:1.
+   ========================================================================== */
+
+.landingContainer {
+  --l-bg: #0a0a0b;
+  --l-bg-raise: #111113;
+  --l-card: #121214;
+  --l-card-2: #1f1f23;
+  --l-line-soft: rgba(255, 255, 255, 0.06);
+  --l-line: rgba(255, 255, 255, 0.08);
+  --l-line-mid: rgba(255, 255, 255, 0.1);
+  --l-line-strong: rgba(255, 255, 255, 0.14);
+  --l-text: #edebe6;
+  --l-sub: #a1a09b;   /* ~7.6:1 trên --l-bg */
+  --l-mute: #85847e;  /* ~5.2:1 trên --l-bg */
+  --l-faint: #5a5a60; /* chỉ cho trang trí và chữ chưa tới lượt đọc */
+  --l-accent: #c6f432;
+  --l-accent-hover: #d4fb55;
+  --l-on-accent: #0a0a0b;
+  --l-ivory: #f1ede4;
+  --l-ink: #0b0a09;
+  --l-display: 'Bricolage Grotesque', 'Be Vietnam Pro', sans-serif;
+  --l-serif: 'Playfair Display', Georgia, serif;
+  --l-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  --l-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+  background-color: var(--l-bg);
+  color: var(--l-text);
+  font-family: var(--l-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.landingContainer :where(h1, h2, h3, p) {
+  text-wrap: balance;
+}
+
+.landingContainer :where(section[id], div[id]) {
+  scroll-margin-top: 80px;
+}
+
+.landingContainer ::selection {
+  background: var(--l-accent);
+  color: var(--l-on-accent);
+}
+
+/* ---------- Thanh CTA dính đáy (mobile) ---------- */
+
+.mobileCtaBar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobileCtaBar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: rgba(10, 10, 11, 0.94);
+    border-top: 1px solid var(--l-line);
+    transform: translateY(110%);
+    transition: transform 0.25s ease;
+  }
+  .mobileCtaBarVisible {
+    transform: translateY(0);
+  }
+  /* FloatingSupportWidget là div fixed đầu tiên; đẩy lên trên thanh CTA */
+  .supportLifted > div {
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    transition: bottom 0.25s ease;
+  }
+}
+
+/* ---------- Giảm chuyển động (WCAG 2.3.3) ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .landingContainer *,
+  .landingContainer *::before,
+  .landingContainer *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

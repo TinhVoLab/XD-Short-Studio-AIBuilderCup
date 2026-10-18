@@ -1,0 +1,46 @@
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  border-top: 1px solid var(--border);
+  gap: var(--space-2);
+}
+
+/* Applied explicitly via `first` prop — removes separator for the very first section in the panel */
+.sectionHeaderFirst {
+  border-top: none;
+  padding-top: 0;
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: var(--space-15);
+  min-width: 0;
+}
+
+.title {
+  font-size: 11.5px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-sub);
+  letter-spacing: 0.2px;
+  text-transform: none;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-tight);
+}
+
+.actionArea {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+

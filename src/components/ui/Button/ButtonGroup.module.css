@@ -1,0 +1,52 @@
+.group {
+  display: inline-flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.fullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.fullWidth > * {
+  flex: 1;
+}
+
+/* Attached mode - merges borders & handles corner radii */
+.attached.horizontal > *:not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  margin-left: -1px;
+}
+
+.attached.horizontal > *:not(:last-child) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.attached.vertical > *:not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-top: -1px;
+}
+
+.attached.vertical > *:not(:last-child) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Ensure active / focused child brings border to top */
+.attached > *:hover,
+.attached > *:focus-visible,
+.attached > *[data-active="true"] {
+  z-index: 2;
+}

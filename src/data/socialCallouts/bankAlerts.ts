@@ -1,0 +1,55 @@
+import { SocialCalloutPresetItem } from './types'
+
+export const BANK_ALERT_PRESETS: SocialCalloutPresetItem[] = [
+  {
+    id: 'bank-vcb-100m',
+    variant: 'bank',
+    category: 'bank',
+    label: '💰 Nổ Tiền +100Tr',
+    previewBadge: 'VCB',
+    data: {
+      variant: 'bank',
+      title: '+100,000,000 đ',
+      subtitle: 'Vietcombank • 10:45',
+      content: 'Thanh toan hop dong truyen thong so #882',
+      highlight: '+100,000,000 đ',
+      accentColor: '#00D46A',
+      badge: 'THÀNH CÔNG',
+    },
+    animPreset: 'zoom-in',
+  },
+  {
+    id: 'bank-mbbank-50m',
+    variant: 'bank',
+    category: 'bank',
+    label: '⚡ Biến Động +50Tr',
+    previewBadge: 'MBBANK',
+    data: {
+      variant: 'bank',
+      title: '+50,000,000 đ',
+      subtitle: 'MBBank • Vừa xong',
+      content: 'Nhan tien tu QUY DAU TU TANG TRUONG',
+      highlight: '+50,000,000 đ',
+      accentColor: '#0052FF',
+      badge: 'NỔ TIỀN',
+    },
+    animPreset: 'bounce',
+  },
+  {
+    id: 'bank-momo-15m',
+    variant: 'bank',
+    category: 'bank',
+    label: '🎁 Ting Ting +15Tr',
+    previewBadge: 'MOMO',
+    data: {
+      variant: 'bank',
+      title: '+15,500,000 đ',
+      subtitle: 'Ví MoMo • 2 phút trước',
+      content: 'Chuyen tien hoa hong ban hang tiep thi lien ket',
+      highlight: '+15,500,000 đ',
+      accentColor: '#A50064',
+      badge: 'TING TING',
+    },
+    animPreset: 'slide-up',
+  },
+]

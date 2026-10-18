@@ -1,0 +1,252 @@
+.bento {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.span3 {
+  grid-column: span 3;
+}
+
+.span4 {
+  grid-column: span 4;
+}
+
+.cell {
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--l-card);
+  border: 1px solid var(--l-line);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tall {
+  gap: 28px;
+  min-height: 300px;
+}
+
+.cellTitle {
+  margin: 0;
+  font: 600 22px var(--l-display);
+  letter-spacing: -0.02em;
+  color: var(--l-text);
+}
+
+.cellText {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--l-sub);
+}
+
+.narrow {
+  max-width: 460px;
+}
+
+/* ---------- Ô giọng đọc ---------- */
+
+.well,
+.wellTight {
+  margin-top: auto;
+  border-radius: 14px;
+  background: var(--l-bg);
+  border: 1px solid var(--l-line-soft);
+}
+
+.well {
+  padding: 20px;
+}
+
+.wellTight {
+  padding: 14px;
+}
+
+.karaoke {
+  font: 600 22px/1.4 var(--l-body);
+  color: var(--l-faint);
+}
+
+.karaoke .spoken {
+  color: var(--l-text);
+}
+
+.karaoke mark {
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--l-accent);
+  color: var(--l-on-accent);
+}
+
+.wave {
+  margin-top: 16px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.wave span {
+  flex: 1;
+  border-radius: 1px;
+  background: #2a2a2f;
+}
+
+.wave .waveDone {
+  background: var(--l-text);
+}
+
+.wave .waveNow {
+  background: var(--l-accent);
+}
+
+/* ---------- Ô hook ---------- */
+
+.hooks {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: 600 14px var(--l-body);
+}
+
+.hook,
+.hookActive {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--l-card-2);
+  border: 1px solid transparent;
+}
+
+.hookActive {
+  border-color: var(--l-accent);
+}
+
+/* ---------- Ô timeline ---------- */
+
+.ruler {
+  display: flex;
+  justify-content: space-between;
+  font: 500 10px var(--l-mono);
+  color: var(--l-mute);
+}
+
+.clips {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1.5fr;
+  gap: 4px;
+}
+
+.clips span {
+  height: 28px;
+  border-radius: 6px;
+  background: #2a2a2f;
+}
+
+.clips .clipActive {
+  background: var(--l-accent);
+}
+
+.audioLane {
+  margin-top: 4px;
+  height: 16px;
+  border-radius: 4px;
+  background: #1a1a1d;
+}
+
+.swatches {
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.swatches span {
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 999px;
+}
+
+.swatches .swatchActive {
+  border: 2px solid var(--l-text);
+}
+
+/* ---------- Ô widget ---------- */
+
+.widgets {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.widgetBars,
+.widgetList,
+.widgetQuiz {
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: var(--l-card-2);
+  padding: 12px;
+}
+
+.widgetBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.widgetBars span {
+  flex: 1;
+  border-radius: 3px;
+  background: #3a3a40;
+}
+
+.widgetList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+
+.widgetList span {
+  height: 6px;
+  border-radius: 3px;
+  background: #3a3a40;
+}
+
+.widgetBars .accentFill,
+.widgetList .accentFill {
+  background: var(--l-accent);
+}
+
+.widgetQuiz {
+  display: grid;
+  place-items: center;
+  font: 700 28px var(--l-display);
+  color: var(--l-accent);
+}
+
+@media (max-width: 900px) {
+  .span2,
+  .span3,
+  .span4 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .cell {
+    padding: 24px;
+  }
+  .karaoke {
+    font-size: 18px;
+  }
+}

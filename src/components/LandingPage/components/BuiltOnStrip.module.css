@@ -1,0 +1,37 @@
+.strip {
+  border-top: 1px solid var(--l-line-soft);
+  border-bottom: 1px solid var(--l-line-soft);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 40px;
+}
+
+.label {
+  font: 500 11px var(--l-mono);
+  letter-spacing: 0.1em;
+  color: var(--l-mute);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  font: 600 16px var(--l-display);
+  color: var(--l-sub);
+}
+
+.role {
+  font: 400 13px var(--l-body);
+  color: var(--l-mute);
+}

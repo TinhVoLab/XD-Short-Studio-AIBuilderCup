@@ -1,0 +1,434 @@
+/* ══════════════════════════════════════════
+   ProjectsModal.module.css
+   ══════════════════════════════════════════ */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 880px;
+  max-height: 85vh;
+  background-color: #0B0D11;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(190, 255, 1, 0.05);
+}
+
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #14171E 0%, #0B0D11 100%);
+  gap: 16px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.headerTitleRow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text, #f0f6fc);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-sub, #8b949e);
+  background: var(--surface-2, #161b22);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  padding: 2px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-muted, #6e7681);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.headerSep {
+  width: 1px;
+  height: 18px;
+  background: var(--border, rgba(255, 255, 255, 0.08));
+  margin: 0 2px;
+}
+
+.searchBar {
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: #0E1015;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchBarFlex {
+  flex: 1;
+}
+
+.filterBar {
+  padding: 8px 20px;
+  background: #080A0D;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.filterBarRight {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.viewToggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 2px;
+}
+
+.viewToggleBtn {
+  width: 28px;
+  height: 26px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--text-sub, #888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.viewToggleBtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.viewToggleBtnActive {
+  background: var(--surface-3, #21262d);
+  color: var(--accent, #BEFF01);
+}
+
+.projectsContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+.projectsContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.projectsContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projectsContainer::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.projectsContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.projectCard {
+  border-radius: 12px;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.projectCardGrid {
+  padding: 12px;
+  flex-direction: column;
+}
+
+.projectCardList {
+  padding: 8px 12px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.projectCardDefault {
+  background: #0E1116;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.projectCardActive {
+  background: linear-gradient(180deg, #161A22 0%, #0F1218 100%);
+  border: 1px solid #BEFF01;
+  box-shadow: 0 0 16px rgba(190, 255, 1, 0.12);
+}
+
+.activeBadgeInline {
+  background: rgba(190, 255, 1, 0.15);
+  border: 1px solid rgba(190, 255, 1, 0.4);
+  color: #BEFF01;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.projectInfoList {
+  flex: 1;
+}
+
+.renameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.renameInput {
+  flex: 1;
+  background: #080A0D;
+  border: 1px solid #BEFF01;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 700;
+  outline: none;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.projectTitle {
+  font-size: 12.5px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  flex: 1;
+}
+
+.projectTitleDefault {
+  color: #EEE;
+}
+
+.projectTitleActive {
+  color: #BEFF01;
+}
+
+.projectMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  color: #777;
+}
+
+.actionsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.actionsWrapperList {
+  flex-direction: row;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.actionsWrapperGrid {
+  flex-direction: column;
+  gap: 0;
+  margin-left: 0;
+}
+
+.tagRelative {
+  position: relative;
+}
+
+.tagPopover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #161A22;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  width: 180px;
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tagPopoverTitle {
+  font-size: 10px;
+  color: #888;
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tagList {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tagItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #DDD;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tagCheckbox {
+  cursor: pointer;
+  accent-color: #BEFF01;
+}
+
+.tagAddRow {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.tagAddInput {
+  flex: 1;
+  background: #0B0D11;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.bottomBar {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+.bottomBarGrid {
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 0;
+}
+
+.bottomBarList {
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  gap: 8px;
+}
+
+.deleteBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255, 68, 68, 0.12);
+  border: 1px solid rgba(255, 68, 68, 0.35);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.deleteBannerText {
+  font-size: 10px;
+  color: #FF7777;
+  font-weight: 700;
+}
+
+.deleteBannerActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quickActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+  font-size: 12px;
+}

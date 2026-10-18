@@ -1,0 +1,1015 @@
+{
+  "processedScenes": [
+    {
+      "id": "ai-scene-1727076000000-0",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 1: Hook Nguy Hiểm",
+      "description": "Cảnh mở đầu giật gân",
+      "temporalRole": "hook",
+      "duration": 3.2,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "zoom-in",
+      "transitionOut": "glitch",
+      "transition": {
+        "type": "glitch",
+        "duration": 0.5
+      },
+      "kineticBgWord": "DỪNG",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Dừng lại ngay nếu bạn đang dùng AI!",
+      "soundEffects": [
+        {
+          "type": "boom",
+          "delaySec": 0.05,
+          "volume": 0.85
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "master-hook",
+          "hookData": {
+            "heroTitle": "DỪNG LÀM AI SAI CÁCH",
+            "badgeText": "CẢNH BÁO",
+            "highlightWords": [
+              "DỪNG LÀM",
+              "SAI CÁCH"
+            ],
+            "layoutStyle": "hazard-alert",
+            "accentColor": "#FF3366"
+          },
+          "id": "ai-el-1727076000000-0-0",
+          "left": 180,
+          "top": 95,
+          "width": 320,
+          "height": 240,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-0",
+          "type": "caption",
+          "content": "Dừng lại ngay nếu bạn đang dùng AI sai cách này!",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-1",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 2: Hộp Điểm Nhấn",
+      "description": "Phân tích nguyên nhân cốt lõi",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-left",
+      "transitionOut": "zoom-blur",
+      "transition": {
+        "type": "zoom-blur",
+        "duration": 0.5
+      },
+      "kineticBgWord": "PROMPT",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Hầu hết mọi người viết prompt quá dài khiến mô hình!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "badge",
+          "content": "NGUYÊN NHÂN #01",
+          "color": "#BEFF01",
+          "id": "ai-el-1727076000000-1-0",
+          "left": 180,
+          "top": 60,
+          "width": 144,
+          "height": 26,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 11,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "type": "highlight-box",
+          "content": "Prompt quá dài gây tràn ngữ cảnh và ảo giác",
+          "fontSize": 15,
+          "id": "ai-el-1727076000000-1-1",
+          "left": 180,
+          "top": 100,
+          "width": 312,
+          "height": 66,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-1",
+          "type": "caption",
+          "content": "Hầu hết mọi người viết prompt quá dài khiến mô hình bị ảo giác và trả về câu trả lời lan man.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-2",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 3: Thống Kê Con Số Khủng",
+      "description": "Bằng chứng số liệu",
+      "temporalRole": "highlight",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "mesh",
+      "cameraMotion": "zoom-in",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "NGUỒN",
+      "colorInverted": true,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Có tới 85% kết quả sai lệch bắt nguồn từ việc!",
+      "soundEffects": [
+        {
+          "type": "thud",
+          "delaySec": 0.05,
+          "volume": 0.8
+        },
+        {
+          "type": "ding",
+          "delaySec": 0.2,
+          "volume": 0.75
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "stat-big",
+          "statValue": "85%",
+          "statLabel": "TỶ LỆ LỖI PROMPT",
+          "accentColor": "#FFB800",
+          "id": "ai-el-1727076000000-2-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 120,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-2",
+          "type": "caption",
+          "content": "Có tới 85% kết quả sai lệch bắt nguồn từ việc thiếu cấu trúc dữ liệu đầu vào.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-3",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 4: Hội Thoại Chat Tin Nhắn",
+      "description": "Tình huống thực tế",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-left",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "KHÁCH",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Đây là sự khác biệt khi khách hàng hỏi và cách!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "chat-mockup",
+          "chatMessages": [
+            {
+              "sender": "left",
+              "name": "Khách",
+              "text": "Giá gói AI Pro bao nhiêu?"
+            },
+            {
+              "sender": "right",
+              "name": "Bot",
+              "text": "Chỉ 199k trọn đời bạn nhé!"
+            }
+          ],
+          "id": "ai-el-1727076000000-3-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 180,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-3",
+          "type": "caption",
+          "content": "Đây là sự khác biệt khi khách hàng hỏi và cách trả lời tối ưu.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-4",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 5: So Sánh Đối Đầu",
+      "description": "So sánh cách làm cũ và mới",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-right",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "TRUYỀN",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Cách làm truyền thống tốn nhiều giờ, trong khi dùng mẫu!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "vs-card",
+          "leftCard": {
+            "title": "CÁCH CŨ",
+            "points": [
+              "Tốn 3 giờ",
+              "Dễ nhầm"
+            ],
+            "color": "#FF3366"
+          },
+          "rightCard": {
+            "title": "CÁCH MỚI",
+            "points": [
+              "10 Giây",
+              "Chuẩn 100%"
+            ],
+            "color": "#BEFF01"
+          },
+          "id": "ai-el-1727076000000-4-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 160,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-4",
+          "type": "caption",
+          "content": "Cách làm truyền thống tốn nhiều giờ, trong khi dùng mẫu chuẩn chỉ mất 10 giây.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-5",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 6: Danh Sách Kiểm Tra Checklist",
+      "description": "Các bước chuẩn bị",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-left",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "TRƯỚC",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Hãy chắc chắn bạn đã tích đủ 3 tiêu chí này!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "checklist",
+          "checklistItems": [
+            {
+              "text": "Rõ ràng mục tiêu",
+              "status": "checked"
+            },
+            {
+              "text": "Giới hạn định dạng JSON",
+              "status": "checked"
+            },
+            {
+              "text": "Cung cấp ví dụ mẫu",
+              "status": "checked"
+            }
+          ],
+          "id": "ai-el-1727076000000-5-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 236,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-5",
+          "type": "caption",
+          "content": "Hãy chắc chắn bạn đã tích đủ 3 tiêu chí này trước khi bấm gửi lệnh.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-6",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 7: Quy Trình 3 Bước Flowchart",
+      "description": "Quy trình hành động",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-right",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "TRÌNH",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Quy trình ba bước chuẩn tự động hoá bất kỳ công!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "flowchart",
+          "flowSteps": [
+            {
+              "title": "BƯỚC 1",
+              "subtitle": "Bóc tách dữ liệu",
+              "color": "#BEFF01"
+            },
+            {
+              "title": "BƯỚC 2",
+              "subtitle": "Chuẩn hoá cấu trúc",
+              "color": "#00D4FF"
+            },
+            {
+              "title": "BƯỚC 3",
+              "subtitle": "Xuất bản video",
+              "color": "#FF3366"
+            }
+          ],
+          "id": "ai-el-1727076000000-6-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 230,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "content": "",
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-6",
+          "type": "caption",
+          "content": "Quy trình ba bước chuẩn tự động hoá bất kỳ công việc nào.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-7",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 8: Tràn Bố Cục Thác Nước (Elastic Compression Test)",
+      "description": "Test nén an toàn Safe Zone",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-left",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "NHIỀU",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Nhiều thành phần cùng xuất hiện trên một khung hình sẽ!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Tiêu Đề Lớn",
+          "fontSize": 28,
+          "id": "ai-el-1727076000000-7-1",
+          "left": 180,
+          "top": 60,
+          "width": 312,
+          "height": 40,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "center",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "type": "highlight-box",
+          "content": "Nội dung phân tích chi tiết dòng 1\ndòng 2\ndòng 3",
+          "id": "ai-el-1727076000000-7-2",
+          "left": 180,
+          "top": 114,
+          "width": 312,
+          "height": 88,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 14,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "type": "quote-box",
+          "content": "Chiêm nghiệm sâu sắc",
+          "authorName": "Chuyên Gia",
+          "id": "ai-el-1727076000000-7-3",
+          "left": 180,
+          "top": 216,
+          "width": 320,
+          "height": 155,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "type": "badge",
+          "content": "TỔNG HỢP",
+          "id": "ai-el-1727076000000-7-0",
+          "left": 180,
+          "top": 385,
+          "width": 88,
+          "height": 26,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 11,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-7",
+          "type": "caption",
+          "content": "Nhiều thành phần cùng xuất hiện trên một khung hình sẽ kích hoạt thuật toán nén.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-8",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 9: Morphing Test (Trùng lặp widget liên tiếp)",
+      "description": "Test biến hình chống lặp",
+      "temporalRole": "normal",
+      "duration": 4.1,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-right",
+      "transitionOut": "fade",
+      "transition": {
+        "type": "fade",
+        "duration": 0.5
+      },
+      "kineticBgWord": "WIDGET",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Khi widget lặp lại liên tiếp thì hệ thống sẽ tự!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "quote-box",
+          "content": "Trích dẫn liên tiếp cần biến hình",
+          "authorName": "Tác Giả",
+          "id": "ai-el-1727076000000-8-0",
+          "left": 180,
+          "top": 60,
+          "width": 320,
+          "height": 155,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 24,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-8",
+          "type": "caption",
+          "content": "Khi widget lặp lại liên tiếp thì hệ thống sẽ tự động đổi sang dạng khác.",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    },
+    {
+      "id": "ai-scene-1727076000000-9",
+      "schemaVersion": "1.0.0",
+      "name": "Cảnh 10: Kêu Gọi Hành Động (CTA)",
+      "description": "Cảnh kết thúc",
+      "temporalRole": "cta",
+      "duration": 3,
+      "bgColor": "#060D16",
+      "bgPattern": "grid",
+      "cameraMotion": "pan-left",
+      "transitionOut": "none",
+      "transition": {
+        "type": "none",
+        "duration": 0
+      },
+      "kineticBgWord": "FOLLOW",
+      "colorInverted": false,
+      "hudHeader": "-- 3 SAI LẦM CHÍ MẠNG K . 2026 --",
+      "hudFooterLeft": "3 SAI LẦM CHÍ M | Cảnh {index}",
+      "hudFooterRight": "{page}/{total} REV 2026.08",
+      "authorName": "By Tech Director",
+      "voiceoverText": "Lưu ngay video này lại và bấm!",
+      "soundEffects": [
+        {
+          "type": "pop",
+          "delaySec": 0.1,
+          "volume": 0.7
+        }
+      ],
+      "viralEffects": {
+        "vignettePulse": true,
+        "accentBreathe": true,
+        "microParticles": false
+      },
+      "elements": [
+        {
+          "type": "badge",
+          "content": "FOLLOW KÊNH",
+          "color": "#BEFF01",
+          "id": "ai-el-1727076000000-9-0",
+          "left": 180,
+          "top": 60,
+          "width": 112,
+          "height": 26,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 11,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "textAlign": "left",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "type": "text",
+          "content": "Bấm Lưu & Theo Dõi",
+          "fontSize": 26,
+          "textAlign": "center",
+          "id": "ai-el-1727076000000-9-1",
+          "left": 180,
+          "top": 100,
+          "width": 312,
+          "height": 60,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 700,
+          "color": "#ffffff",
+          "animPreset": "fade-in",
+          "animDuration": 0.5,
+          "animDelay": 0,
+          "shadow": false
+        },
+        {
+          "id": "caption-1727076000000-9",
+          "type": "caption",
+          "content": "Lưu ngay video này lại và bấm follow kênh nhé!",
+          "captionStyle": "word-highlight",
+          "left": 180,
+          "top": 500,
+          "width": 320,
+          "height": 90,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "opacity": 1,
+          "fontSize": 18,
+          "fontFamily": "Be Vietnam Pro",
+          "fontWeight": 800,
+          "color": "#FFFFFF",
+          "accentColor": "#BEFF01",
+          "textAlign": "center",
+          "wordsPerLine": 4
+        }
+      ]
+    }
+  ],
+  "standalone": {
+    "testSanitize": "Trong, chúng ta dường như đã lãng quên điều cốt lõi.",
+    "testPacing": "Đây là câu thoại dài ngoằng nhằm kiểm!",
+    "testHookInfer": "hazard-alert",
+    "testCollision": [
+      {
+        "type": "text",
+        "top": 60,
+        "height": 40,
+        "content": "A",
+        "left": 180,
+        "textAlign": "center"
+      },
+      {
+        "type": "highlight-box",
+        "top": 114,
+        "height": 52,
+        "content": "B",
+        "left": 180
+      }
+    ]
+  }
+}

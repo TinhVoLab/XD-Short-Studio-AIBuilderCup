@@ -1,0 +1,200 @@
+.spineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+  position: relative;
+  animation: slideDown 0.18s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Spine vertical rail connecting from card base */
+.spineStem {
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, var(--border-focus, #BEFF01), rgba(190, 255, 1, 0.4));
+  box-shadow: 0 0 6px rgba(190, 255, 1, 0.3);
+}
+
+.layersList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Continuous vertical timeline guide line */
+.layersList::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  bottom: 12px;
+  width: 1.5px;
+  background: var(--border);
+}
+
+/* Each item row */
+.layerRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Horizontal anchor connecting spine to node pill */
+.spineAnchor {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 1.5px;
+  background: var(--border);
+}
+
+.spineDot {
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-sub);
+  border: 1px solid var(--surface-1);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.layerRow:hover .spineDot,
+.layerRow.selected .spineDot {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Micro-Pill Node */
+.layerPill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 26px;
+  padding: 0 6px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  user-select: none;
+}
+
+.layerPill:hover {
+  background: var(--surface-2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.layerPill.selected {
+  background: rgba(190, 255, 1, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(190, 255, 1, 0.2);
+}
+
+.layerPill.hiddenLayer {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+/* Left part: Icon & Title */
+.pillLeft {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+
+.typeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-sub);
+  flex-shrink: 0;
+}
+
+.layerPill.selected .typeIcon {
+  color: var(--accent);
+}
+
+.layerLabel {
+  font-size: var(--font-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60px;
+}
+
+/* Right part: Time badge & Visibility */
+.pillRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.timeChip {
+  font-size: 8px;
+  font-family: monospace;
+  font-weight: var(--fw-semibold);
+  color: #00F2FE;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: 3px;
+  padding: 1px 3px;
+  line-height: 1;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  padding: 2px;
+  margin: 0;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: color 0.12s ease;
+}
+
+.eyeBtn:hover {
+  color: var(--text);
+}
+
+.eyeBtn.hiddenIcon {
+  color: #FF453A;
+}
+
+/* Empty state */
+.emptyNotice {
+  font-size: 9px;
+  color: var(--text-muted);
+  padding: 6px 0;
+  text-align: center;
+}

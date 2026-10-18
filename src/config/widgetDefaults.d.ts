@@ -1,0 +1,10 @@
+import type { ChecklistItem, VsBattleRound, VsBattleData, SankeyData, TreeData } from '@/types/scene';
+export declare const DEFAULT_CHECKLIST_ITEMS: ChecklistItem[];
+export declare const DEFAULT_TERMINAL_CODE: string;
+export declare const DEFAULT_VS_ROUNDS: VsBattleRound[];
+export declare const DEFAULT_VS_SUBJECTS: { left: VsBattleData['leftSubject']; right: VsBattleData['rightSubject'] };
+export declare const DEFAULT_NUMBERED_ITEMS: string[];
+export declare const DEFAULT_SANKEY_DATA: SankeyData;
+export declare const DEFAULT_TREE_TITLE: string;
+export declare const DEFAULT_TREE_DATA: TreeData;
+export declare const DEFAULT_DIAGRAM_DATA: DynamicDiagramData;

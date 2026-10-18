@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production / Build output
+dist/
+build/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+server.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# TypeScript / Vite cache
+*.tsbuildinfo
+.vite/
+
+# Temporary / Large media outputs & scratch files
+temp-*
+*.mp4
+*.temp
+scratch/
+tests/output/
+test_output/
+public/uploads/
+public/storage/
+public/thumb-*.jpg
+*.bundle
+*.py
+tmp_dump.txt
+*.af
+*.af~lock~
+*.patch
+*.orig
+*.rej
+.backup/
+.backups/
+src_backup_*/
+web-layout-design-pro.skill
+server/.cache/
+
+# Báo cáo sinh ra bởi npm run test:contrast
+tests/render/widgetContrastAudit.report.json
+
+# Cấu hình function api do scripts/deploy-render-worker.sh sinh ra (theo môi trường)
+.env.xd-short
